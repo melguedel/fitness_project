@@ -1,0 +1,210 @@
+
+/* Globals */
+
+// Small CSS Reset
+
+*{
+    margin: 0;
+    padding: 0;
+}
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+/* Scrolling and Scrollbar */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);;
+}
+
+// Headlines & Paragraphs
+
+h1, h2, h3 {
+    @include boldFont;
+}
+
+p {
+    @include regularFont;
+}
+
+/* Navigation */
+
+// Fixed Top Navigation
+
+.top-nav {
+    position: fixed;
+    width: 100%;
+    background: $darkgrey;
+    padding: 1.5em;
+    z-index: 111;
+    top: 0em;
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    ul li {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: $offwhite;
+        @include transition;
+        @include mediumFont;
+    }
+    
+    li:not(:first-child) {
+        margin-left: 1.5em;
+    }
+    
+    a:hover {
+        color: $red;
+    }
+}
+
+#active {
+    border-bottom: $red 3px solid;
+    @include transition;
+}
+
+// Hamburger Menu
+
+.fa-bars {
+    position: fixed;
+    right: 0;
+    margin: 1em;
+    cursor: pointer;
+    font-size: 2rem;
+    color: $red;
+    z-index: 1;
+    top: 0;
+}
+
+.side-nav {
+    background: $darkgrey;
+    width: 0%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0em;
+    @include transition;
+    overflow-x: hidden;
+    z-index: 222;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 6em;
+    }
+    
+    li {
+        list-style: none;
+        margin-top: 1.5em;
+    }
+    
+    a {
+        color: $offwhite;
+        text-decoration: none;
+        @include mediumFont;
+    }
+    
+    a:hover {
+        color: $red;
+        @include transition;
+    }
+
+}
+
+.fa-times {
+    color: $offwhite;
+    font-size: 2rem;
+    margin: 1em;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+
+    &:hover {
+        color: $red;
+        @include transition;
+    }
+}
+
+// Buttons with Hover
+
+.btn {
+    color: $offwhite;
+    background: $red;
+    @include transition;
+    padding: 0.5em 4em;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    text-decoration: none;
+    @include mediumFont;
+    margin: 1em;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        color: $offwhite;
+        background: $darkgrey;
+        @include transition;
+    }
+}
+
+/* Error & Success Messages */
+
+.error-message {
+    color: $darkred;
+    margin: 0.5em;
+    @include mediumFont;
+}
+
+.success-message {
+    color: $green;
+    margin: 0.5em;
+    @include mediumFont;
+}
+
+
+// Footer with To-Top-Button
+
+footer {
+    padding: 1em;
+    background: $darkgrey;
+    color: $offwhite;
+    position: absolute;
+    width: 100%;
+    
+    .footerText {
+        text-align: center;
+    }
+
+    h3 {
+        @include mediumFont;
+    }
+}
+
+.fa-chevron-up {
+    float: right;
+    color: $offwhite;
+    font-size: 2em;
+    cursor: pointer;
+    background: $red;
+    clip-path: polygon(12% 0, 100% 0%, 88% 100%, 0% 100%);
+    padding: 0.3em;
+}

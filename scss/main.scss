@@ -1,0 +1,241 @@
+
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_global.scss";
+
+
+/* Header on Landing Page */
+
+.home-header {
+
+    img {
+        max-width: 100%;
+        max-height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 51% 100%, 0% 100%);
+    }
+}
+
+.header-side-article {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    max-width: 20em;
+    @include flexBox;
+    text-align: center;
+}
+
+
+/* Sections general */
+
+section {
+    height: 100vh;
+}
+
+// About Section
+
+#about {
+    text-align: center;
+    @include flexBox;
+    background: $lightgrey;
+
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    p {
+        max-width: 85%;
+    }
+}
+
+#select-bodypart {
+    @include flexBox;
+
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    .select-options {
+        margin: 2em;
+        @include boldFont;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        border: none;
+        background: $darkgrey;
+        color: $offwhite;
+        outline: none;
+        cursor: pointer;
+        padding: 1em 5em;
+    }
+
+}
+
+// Contact Section
+
+#contact {
+    @include flexBox;
+    background: $lightgrey;
+}
+
+/* Register and Login Forms */
+
+.form-section {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    max-width: 22em;
+    @include flexBox;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 2em;
+    margin: 1em;
+
+    label, input {
+        @include regularFont;
+        margin: 0.5em;
+    }
+}
+
+.register-form {
+    @include flexBox;
+    max-width: 22em;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 2em;
+    margin: 1em;
+
+    .register-info {
+        margin-bottom: 1em;
+    }
+
+    label, input {
+        @include regularFont;
+        margin: 0.5em;
+    }
+}
+
+/* Dashboard */ 
+
+.dashboard-main h1 {
+    margin: 3em auto 1em auto;
+    text-align: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
+    background: $lightgrey;
+}
+
+.profile-picture {
+    display: flex;
+    justify-content: row;
+
+    img {
+        max-width: 20em;
+        max-height: 20em;
+    }
+}
+
+.workout-section {
+    @include flexBox;
+}
+
+.workout-title {
+    @include flexBox;
+    margin-bottom: 3em;
+}
+
+.horizontal-rule {
+    height: 4px;
+    width: 8em;
+    background: $darkgrey;
+    margin-top: 0.5em;
+}
+
+/* Logout Button */
+
+.logout-btn {
+    text-align: center;
+    width: 7em;
+    margin: 1em;
+}
+
+/* Media Queries */
+
+/* Phones */
+
+@media screen and (max-width: 599px) {
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .side-nav {
+        display: block;
+    }
+
+    .form-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .login-form {
+            margin-top: 10em;
+        }
+
+        .register-form {
+            margin-bottom: 15em;
+        }
+    }
+
+}
+
+/* Tablets */
+
+@media screen and (min-width: 600px) {
+
+    h1, h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .side-nav {
+        display: none;
+    }
+
+
+}
+
+/* Desktop */
+
+@media screen and (min-width: 980px) {
+
+    h1, h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .side-nav {
+        display: none;
+    }
+
+}
