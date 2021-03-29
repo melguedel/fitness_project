@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 :athletic-shoe CONTENTS OF THIS PROJECT :woman-running
+=======
+🏃‍ CONTENTS OF THIS PROJECT 👟
+>>>>>>> 507e64ac72e830a9bcd5ab3e43c4965a3edec52d
 ---------------------
 
 > Introduction
