@@ -1,16 +1,19 @@
 <?php
-// session_start();
-// if (isset($_SESSION['status']) && $_SESSION['status'] == "Logged in!") {
-// 	$output = "<p>Status: ".$_SESSION['status']."</p>\n";
-// } else {
+session_start();
+if (isset($_SESSION['status']) && $_SESSION['status'] == "Logged in!") {
+	$output = "<p>Status: ".$_SESSION['status']."</p>\n";
+} else {
 	// Umleitung zurück auf Login, da Session nicht gelesen werden konnte
-	// header('Location: register.php');
-// }
+	header('Location: register.php');
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- CSS Stylesheet -->
+<link rel="stylesheet" href="../scss/main.css">
 
 <!-- Meta Data -->
 <?php require('../partials/head.inc.html'); ?>
@@ -65,17 +68,28 @@
         <h3>Arms</h3>
         <span class="horizontal-rule"></span>
     </article>
+
+    <article class="workout-title">
+        <h3>Glutes</h3>
+        <span class="horizontal-rule"></span>
+    </article>
+
+    <article class="workout-title">
+        <h3>Legs</h3>
+        <span class="horizontal-rule"></span>
+    </article>
+
+    <article class="workout-title">
+        <h3>Yoga</h3>
+        <span class="horizontal-rule"></span>
+    </article>
     
+    <a href="logout.php" class="btn logout-btn">Logout</a>
 
 </section>
 
 
-
-
-
-
-
-<a href="logout.php" class="btn logout-btn">Logout</a>
+<!-- <a href="logout.php" class="btn logout-btn">Logout</a> -->
 
 </main>
 

@@ -2,11 +2,11 @@
 session_start();
 require('../model/credentials.php');
 require('../controller/checkUser.class.php');
+require('../controller/formValidation.class.php');
 $userInstance = new checkUser ($dbhost, $dbuser, $dbpassword, $dbname);
+$formValidation = new formValidation ();
 
-// Variable für Fehlerausgabe
-// $errorMessage = "";
-
+ 
 // Wurde der Submit-Button des Logins gedrückt?
 if (isset ($_POST['login'])) {
 
@@ -27,10 +27,25 @@ else {
 if (isset ($_POST['submit'])) {
 
     // Variablen erstellen
-    $usernameValue = $_POST['username'];
-    $passwordValue = $_POST['password'];
-    $emailValue = $_POST['email'];
+    $usernameValue = $userInstance -> validateInput($_POST['username'], true, "Username", "min_length-2|max_length-40", "Username must be at least 2 characters and maximum 40 characters.");
+    $passwordValue = $userInstance -> validateInput($_POST['password'], true, "Password", "min_length-8|max_length-40", "Password must be at least 8 characters and maximum 40 characters.");
+    $emailValue = $userInstance -> validateInput($_POST['email'], true, "E-Mail", "email", "This ist not a valid e-mail address.");
     $errorMessage = $userInstance -> registrationsKontrolle($user, $pass);
+
+    // Ist die Formularvalidation in Ordnung?
+    if ($userInstance -> validationsStatus) {
+        // Alle Inputfelder sind in Ordnung!
+        $successMessage = "<div class=\"success-message\">";
+        $successMessage .= "Userinput accepted!";
+        $successMessage .= "</div>\n";
+    } else {
+        // Irgendwo hat es einen Fehler!
+        $errorMessage = "<div class=\"error-message\">";
+        foreach ($userInstance -> userFeedback as $feedback) {
+            $errorMessage .= $feedback. "<br>";
+        }
+        $errorMessage .= "</div<\n";
+    }
 }
 else {
     // Falls noch nichts eingegeben wurde, alles auf leer setzen
@@ -38,11 +53,15 @@ else {
     $passwordValue = "";
     $emailValue = "";
     $errorMessage = "";
+    $successMessage = "";
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- CSS Stylesheet -->
+<link rel="stylesheet" href="../scss/main.css">
 
 <!-- Meta Data -->
 <?php require('../partials/head.inc.html'); ?>
@@ -57,7 +76,7 @@ else {
 
     <!-- Login Form -->
     
-    <form action="" class="login-form">
+    <form action="register.php" class="login-form" method="POST">
     
         <h2>Login</h2>
         <p class="register-info">to existing profile</p>
@@ -65,9 +84,11 @@ else {
         <label for="pass">Password<input type="password" name="pass" value="<?=$pass?>"></label>
     
         <!-- Fehlerausgabe -->
-            <?php if(isset($errorMessage)){ ?>
+            <?php if(isset($errorMessage)) { ?>
                 <p class="error-message"><?=$errorMessage?></p>
-            <?php }?>
+            <?php } ?>
+
+            <!-- <p class="error-message"><?=$errorMessage?></p> -->
     
         <!-- Submit Button -->
         <input type="submit" value="Log me in!" name="login" class="btn">
@@ -76,7 +97,7 @@ else {
     
     <!-- Registration Form -->
     
-    <form action="" class="register-form" method="POST">
+    <form action="register.php" class="register-form" method="POST" novalidate>
     
         <h2>Register</h2>
         <p class="register-info">and create your own workout plan</p>
@@ -126,9 +147,12 @@ else {
         </p>
 
         <!-- Fehlerausgabe -->
-        <?php if(isset($errorMessage)){ ?>
+        <?php if(isset($errorMessage)) { ?>
                 <p class="error-message"><?=$errorMessage?></p>
-        <?php }?>
+        <?php } ?>
+
+        <!-- Positives Feedback -->
+        <p class="success-message"><?=$successMessage?></p>
     
         <!-- Submit Button -->
         <input type="submit" class="btn" name="submit" value="Register"></input>
