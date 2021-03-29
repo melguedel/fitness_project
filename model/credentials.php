@@ -1,6 +1,6 @@
 <?php
 
-/* Datenbank Verbindung */
+/* Datenbank Verbindung mit lokalen DB-Credentials */
 
 $dbhost = "localhost";
 $dbuser = "root";

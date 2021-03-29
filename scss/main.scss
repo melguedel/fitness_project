@@ -84,7 +84,7 @@ section {
     align-items: center;
 }
 
-.login-form {
+.login-form, .register-form {
     max-width: 22em;
     @include flexBox;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -95,22 +95,15 @@ section {
         @include regularFont;
         margin: 0.5em;
     }
-}
 
-.register-form {
-    @include flexBox;
-    max-width: 22em;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    padding: 2em;
-    margin: 1em;
+    // input:focus {
+    //     outline: none;
+    //     border: 2px solid $red;
+    //     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    // }
 
     .register-info {
         margin-bottom: 1em;
-    }
-
-    label, input {
-        @include regularFont;
-        margin: 0.5em;
     }
 }
 

@@ -1,4 +1,3 @@
-
 <!-- Fixed top Navigation -->
     
 <nav class="top-nav">
@@ -22,6 +21,6 @@
         <li><a href="#about" class="about">About</a></li>
         <li><a href="#select-bodypart" class="select-bodypart">Exercise</a></li>
         <li><a href="#contact" class="contact">Contact</a></li>
-        <li><a href="register.php" class="login">Login</a></li>
+        <li><a href="views/register.php" class="login">Login</a></li>
     </ul>
 </nav>

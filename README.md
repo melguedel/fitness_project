@@ -1,4 +1,4 @@
-CONTENTS OF THIS PROJECT 
+:athletic-shoe CONTENTS OF THIS PROJECT :woman-running
 ---------------------
 
 > Introduction
@@ -20,20 +20,21 @@ This project is a fitness inspired website, which lets the user of the site crea
 ° Datamanipulation with PHP/ MySQL <br>
 ° Administration Tool (only available trough Login)
 
- > Optional
+ <!-- > Optional -->
 
  <!-- ° Guestbook <br> -->
  <!-- ° News <br> -->
 
 > Folder Structure includes:
 
-° CKEditor Folder <br>
 ° htaccess- File <br>
-° PHP- Files <br>
-° CSS Folder with all CSS Files<br>
+° View Folder with all PHP- Files <br>
+° Model Folder, with <b>credentials.php</b>- File to access Database<br>
+° Controller Folder, with all .class-Files<br>
+° SCSS Folder with all CSS & SCSS Files<br>
 ° Javascript Folder with Script<br>
-° Images Folder containing all images of the project including Favicons and Logo<br>
-° Includes Folder, with <b>config.inc.php</b>- File to access Database<br>
+° Images Folder containing all images of the project<br>
+° Favicon Folder including all Favicon image types <br>
 ° README.md- File<br>
 ° Exported Database-Files for MySQL<br>
 
@@ -45,10 +46,9 @@ To access the personal profile, log in with: <br>
 
 > Projects includes:
 
-° AJAX & OOP <br>
-<!-- ° CK Editor <br> -->
+° AJAX<br>
+° OOP <br>
 ° PHP & MySQL <br>
-<!-- ° jQuery -->
 
 
 
