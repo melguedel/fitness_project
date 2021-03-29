@@ -1,4 +1,4 @@
-CONTENTS OF THIS PROJECT 
+🏃‍ CONTENTS OF THIS PROJECT 👟
 ---------------------
 
 > Introduction
