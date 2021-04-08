@@ -1,6 +1,10 @@
 <?php
 
 class formValidation {
+
+// Attributes
+protected $pdo;
+
 // Fehlermeldung für leere Inputfelder
 private $requiredInput = "Please fill in the input fields.";
 
@@ -10,7 +14,15 @@ public $userFeedback = array();
 // Validierungsstatus des Formulars
 public $validationsStatus = true;
 
-// Funktion zur Validierung des Unserinputs
+// Constructor
+
+public function __construct (PDO $pdo) {
+    $this->pdo = $pdo;
+}
+
+// Methoden
+
+// Methode zur Validierung des Unserinputs
 public function validateInput($input, $required, $elementName = "", $art="", $feedbackArt ="") {
     
     // alle Sonderzeichen, Leerschläge und Tags entfernen
@@ -61,14 +73,14 @@ public function validateInput($input, $required, $elementName = "", $art="", $fe
     /* Funktionen für Registration */
 
     // Funktion zur "Reinigung und Desinfektion" des Unserinputs
-    private function killDangerousInput($str){
-        // $str = trim($str);
-        // $str = strip_tags($str);
-        // $str = htmlspecialchars($str);
-        $newString = filter_var($str, FILTER_SANITIZE_STRING);
-        $newString = trim($newString);
-        return $newString;
-    }
+    // private function killDangerousInput($str){
+    //     // $str = trim($str);
+    //     // $str = strip_tags($str);
+    //     // $str = htmlspecialchars($str);
+    //     $newString = filter_var($str, FILTER_SANITIZE_STRING);
+    //     $newString = trim($newString);
+    //     return $newString;
+    // }
 
     // Funktion um zu prüfen ob Input eine E-Mail ist
     private function email($str) {

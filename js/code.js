@@ -3,21 +3,21 @@
 
 let home = document.querySelector('#home');
 let about = document.querySelector('#about');
-let services = document.querySelector('#select-bodypart');
+let select = document.querySelector('#select-bodypart');
 let contact = document.querySelector('#contact');
 
 window.addEventListener('scroll', () => {
     
     let screen = window.pageYOffset;
 
-    if (about.offsetTop >= screen && services.offsetTop > screen) {
+    if (about.offsetTop >= screen && select.offsetTop > screen) {
         document.querySelector('.about').setAttribute("id", "active");
         document.querySelector('.home').removeAttribute("id", "active");
         document.querySelector('.select-bodypart').removeAttribute("id", "active");
         document.querySelector('.contact').removeAttribute("id", "active");
         console.log('scrolling...');
     }
-    else if (services.offsetTop >= screen && contact.offsetTop > screen) {
+    else if (select.offsetTop >= screen && contact.offsetTop > screen) {
         document.querySelector('.select-bodypart').setAttribute('id', 'active');
         document.querySelector('.home').removeAttribute('id', 'active');
         document.querySelector('.contact').removeAttribute('id', 'active');
@@ -30,7 +30,7 @@ window.addEventListener('scroll', () => {
         document.querySelector('.home').removeAttribute('id', 'active');
     }
     else {
-        document.querySelector('.home').setAttribute('id', 'active');
+        document.querySelector('.home').removeAttribute('id', 'active');
         document.querySelector('.about').removeAttribute('id', 'active');
         document.querySelector('.select-bodypart').removeAttribute('id', 'active');
         document.querySelector('.contact').removeAttribute('id', 'active');

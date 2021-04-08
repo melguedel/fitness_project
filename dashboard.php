@@ -1,100 +1,95 @@
 <?php
 session_start();
-if (isset($_SESSION['status']) && $_SESSION['status'] == "Logged in!") {
-	$output = "<p>Status: ".$_SESSION['status']."</p>\n";
-} else {
-	// Umleitung zurück auf Login, da Session nicht gelesen werden konnte
-	header('Location: register.php');
-}
-
+require('class/Credentials.php');
+require('class/User.php');
+// User ID in Variable speichern
+$id = $_SESSION['userid'];
+// Wenn Status auf true gesetzt ist, Namen von eingeloggtem User anzeigen
+if ($_SESSION['status'] == true) {
+    // Neue Instanz von Userklasse
+    $userInfo = new User($pdo);
+    // Methode aufrufen
+    $showInfo = $userInfo->showInfos($id);
+ } 
+// else {
+//     header('Location: register.php');
+// }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <!-- CSS Stylesheet -->
-<link rel="stylesheet" href="../scss/main.css">
-
+<link rel="stylesheet" href="scss/main.css">
 <!-- Meta Data -->
-<?php require('../partials/head.inc.html'); ?>
-
+<?php require('partials/head.inc.html'); ?>
 <body>
-
-<!-- Navigation -->
-<?php require('../partials/topnav.inc.php');?>
-
+<!-- Fixed top Navigation -->
+<nav class="top-nav">
+    <ul>
+        <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</nav>
+<!--Sidebar Navigation with Hamburger Menu -->
+<i class="fas fa-bars" onclick="openMenu()"></i>  
+<nav class="side-nav">
+    <i class="fas fa-times" onclick="closeMenu()"></i>
+    <ul>
+        <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</nav>
 <!-- Main Content of dashboard -->
-
 <main class="dashboard-main">
-
 <!-- Profile of User -->
-
-<h1>Welcome back <?=$user?>!</h1>
-
+<h1>Welcome back <?=$showInfo['username']?>!</h1>
+<!-- Section User Profil -->
 <section class="user-profile">
-    
     <!-- Profile Picture -->
-
     <article class="profile-picture">
         <img src="../img/beach.jpg" alt="woman on beach">
     </article>
-
     <!-- Info about User -->
-
     <article class="user-info">
         <p>Username: <?=$user?></p>
         <p>Birthday:<?=$birthday?></p>
         <p>Height:<?=$height?></p>
         <p>Weight:<?=$weight?></p>
     </article>
-
 </section>
-
 <!-- Show saved exercises of user in this section -->
-
 <section class="workout-section">
-
+    <!-- Gespeicherte Workouts ausgeben -->
     <article class="workout-title">
         <h2>Your saved exercises</h2>
         <span class="horizontal-rule"></span>
     </article>
-    
+    <!-- Titel der Übungsart -->
     <article class="workout-title">
         <h3>Abdomen</h3>
         <span class="horizontal-rule"></span>
     </article>
-    
+    <!-- Titel der Übungsart -->
     <article class="workout-title">
         <h3>Arms</h3>
         <span class="horizontal-rule"></span>
     </article>
-
+    <!-- Titel der Übungsart -->
     <article class="workout-title">
         <h3>Glutes</h3>
         <span class="horizontal-rule"></span>
     </article>
-
+    <!-- Titel der Übungsart -->
     <article class="workout-title">
         <h3>Legs</h3>
         <span class="horizontal-rule"></span>
     </article>
-
+    <!-- Titel der Übungsart -->
     <article class="workout-title">
         <h3>Yoga</h3>
         <span class="horizontal-rule"></span>
     </article>
-    
-    <a href="logout.php" class="btn logout-btn">Logout</a>
-
 </section>
-
-
-<!-- <a href="logout.php" class="btn logout-btn">Logout</a> -->
-
+<!-- End of Main Section -->
 </main>
-
 <!-- Footer -->
-<?php require('../partials/footer.inc.html'); ?>
-    
+<?php require('partials/footer.inc.html'); ?>
 </body>
 </html>

@@ -347,6 +347,18 @@ section {
   background: #dddddd;
 }
 
+#contact h2 {
+  margin-bottom: 1em;
+}
+
+#contact iframe {
+  margin: 2em;
+}
+
+#contact article {
+  text-align: center;
+}
+
 /* Register and Login Forms */
 .form-section {
   margin-top: 2em;
@@ -466,13 +478,6 @@ section {
   width: 8em;
   background: #222831;
   margin-top: 0.5em;
-}
-
-/* Logout Button */
-.logout-btn {
-  text-align: center;
-  width: 7em;
-  margin: 1em;
 }
 
 /* Media Queries */

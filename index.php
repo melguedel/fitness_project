@@ -1,17 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <!-- Meta Data -->
 <?php require('partials/head.inc.html'); ?>
-
+<!-- Datenbank-Verbindung -->
+<?php require('class/Credentials.php'); ?>
 <body>
-
 <!-- Navigation -->
-<?php require('partials/topnav.inc.php');?>
-
+<?php require('partials/topnav.inc.html');?>
 <!-- Header -->
-
 <header class="home-header" id="home">
     <img src="img/weightlifting.jpg" alt="person lifting weights">
         <article class="header-side-article">
@@ -20,39 +16,41 @@
             <a href="register.php" class="btn">Sign up!</a>
         </article>
 </header>
-
-
 <!-- Main -->
-
     <section id="about">
         <h2>What is this site about?</h2>
         <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find specific exercises for your needs.</p>
     </section>
-
+<!-- Selector für bestimmte Übungen -->
     <section id="select-bodypart">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
-
         <select name="choose" class="select-options">
             <option value="">Abdomen</option>
             <option value="">Arms</option>
             <option value="">Glutes</option>
             <option value="">Legs</option>
             <option value="">Stretching</option>
-            <!-- Submit Button -->
         </select>
+        <!-- Submit Button -->
         <input type="submit" value="find exercise" name="find" class="btn">
-
+        <!-- Ausgabe von Datenbank Tabelle in HTML -->
+        <div class="workout-selection"></div>
     </section>
-
+<!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
+        <p>Or do you want to join our gym? Visit our studio and sip a protein shake with us!</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9264.664589529895!2d8.007038188976836!3d46.34158006576823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478f6f16d1ddb1cf%3A0x832ff821ca04e2b5!2sBitsch!5e0!3m2!1sde!2sch!4v1617825360663!5m2!1sde!2sch" title="google map" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <article>
+                <p>The Schredderstube</p>
+                <p>Hellweg 666</p>
+                <p>3982 Bitsch</p>
+            </article>
     </section>
-    
 <!-- Footer -->
-
 <?php require('partials/footer.inc.html'); ?>
-
+<!-- Javascript -->
     <script src="js/code.js"></script>
 </body>
 </html>
