@@ -1,10 +1,10 @@
 <?php
 require('class/Bmi.php');
-
-// Klasse aufrufen um BMI zu berechnen
-$resultat = 
+require('class/Sanitize.php');
+// Instanziere Klassen
+$bmi = new BodyMassIndex();
+$sanitize = new Sanitize();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- Meta Data -->
@@ -28,17 +28,49 @@ $resultat =
         <li><a href="register.php" class="login">Login</a></li>
     </ul>
 </nav>
-<!-- BMI Calculator -->
-<form action="" class="login-form" id="calculator" method="GET">
+<!-- BMI Calculator Form -->
+<form action="" class="login-form" id="calculator" method="GET" style="margin: 7em auto 2em auto;">
     <h2>BMI Calculator</h2>
         <p class="register-info">Calculate your Body Mass Index</p>
-        <label for="height">Height<input type="text" name="body-height" value="<?=$height?>"></label>
-        <label for="weight">Weight<input type="text" name="body-weight" value="<?=$weight?>"></label>
-        <!-- Fehlerausgabe -->
-        
+        <label for="height">Height<input type="text" name="body-height" placeholder="Write 175cm as 1.75"></label>
+        <label for="weight">Weight<input type="number" name="body-weight" placeholder="Write Kilograms"></label>
         <!-- Submit Button -->
         <input type="submit" value="Calculate BMI!" name="calculate" class="btn">
 </form>
+<?php
+// Wurde der Submit Button gedrückt:
+if (isset($_GET['calculate'])) {
+    // Variablen definieren
+    $height = $sanitize->sanitizeInput($_GET['body-height']);
+    $weight = $sanitize->sanitizeInput($_GET['body-weight']);
+
+    $bmi = $bmi->calculateBMI($height, $weight);
+    // function calculateBMI($weight, $height) {
+    //     $bmi = $weight/($height*$height);
+    //     return $bmi;
+    // }
+    // $bmi = calculateBMI($weight, $height);
+    // Ausgabe an den User mit Info
+    if ($bmi < 16) {
+            $info = "you are extremely underweight!";
+        } else if ($bmi >= 16 && $bmi < 17) {
+            $info = "you are underweight!";
+        } else if ($bmi >= 17 && $bmi < 18.5) {
+            $info = "you are slightly underweight!";
+        } else if ($bmi >= 18.5 && $bmi < 25) {
+            $info = "congratulations, your weight is normal!";
+        } else if ($bmi >= 25 && $bmi < 30) {
+            $info = "you are overweight.";
+        } else if ($bmi >= 30 && $bmi < 35) {
+            $info = "you are obese.";
+        } else if ($bmi >= 35 && $bmi < 40) {
+            $info = "you are extremely obese!";
+        } 
+        echo "<p class=\"neutral-message\" style=\"margin: 3em auto 2em auto; text-align: center;\">Your BMI Value is: ".$bmi." and ".$info."</p>\n";
+    };
+
+
+?>
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>
 <!-- Javascript -->
