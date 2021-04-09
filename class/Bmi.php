@@ -4,7 +4,7 @@
 class BodyMassIndex {
     public function calculateBmi($height, $weight) {
         // BMI Berechnungsformel
-        $bmi = $weight / ($height * $height);
+        $bmi = round($weight / ($height * $height));
         return $bmi;
     }
 };

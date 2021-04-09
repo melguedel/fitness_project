@@ -182,10 +182,9 @@ p {
 
 .neutral-message {
     color: $darkgrey;
-    width: 80%;
     margin: 1.5em;
     padding: 0.5em;
-    @include mediumFont;
+    @include boldFont;
 }
 
 

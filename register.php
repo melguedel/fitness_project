@@ -208,7 +208,7 @@ else {
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Other JS -->
-    <script src="js/code.js"></script>
+    <script src="js/menu.js"></script>
     <script src="js/register.js"></script>
 </body>
 </html>

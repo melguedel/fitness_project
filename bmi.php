@@ -43,7 +43,7 @@ if (isset($_GET['calculate'])) {
     // Variablen definieren
     $height = $sanitize->sanitizeInput($_GET['body-height']);
     $weight = $sanitize->sanitizeInput($_GET['body-weight']);
-
+    // Methode aufrufen
     $bmi = $bmi->calculateBMI($height, $weight);
     // function calculateBMI($weight, $height) {
     //     $bmi = $weight/($height*$height);
@@ -65,11 +65,11 @@ if (isset($_GET['calculate'])) {
             $info = "you are obese.";
         } else if ($bmi >= 35 && $bmi < 40) {
             $info = "you are extremely obese!";
-        } 
+        }  else if ($bmi > 40) {
+            $info = "..are you trying to find the ocean? Cause you a whale!";
+        }
         echo "<p class=\"neutral-message\" style=\"margin: 3em auto 2em auto; text-align: center;\">Your BMI Value is: ".$bmi." and ".$info."</p>\n";
     };
-
-
 ?>
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>

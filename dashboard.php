@@ -91,5 +91,7 @@ if ($_SESSION['status'] == true) {
 </main>
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>
+<!-- Javascript -->
+<script src="js/menu.js"></script>
 </body>
 </html>

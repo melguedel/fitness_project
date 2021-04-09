@@ -44,7 +44,7 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9264.664589529895!2d8.007038188976836!3d46.34158006576823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478f6f16d1ddb1cf%3A0x832ff821ca04e2b5!2sBitsch!5e0!3m2!1sde!2sch!4v1617825360663!5m2!1sde!2sch" title="google map" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             <article>
                 <p>The Schredderstube</p>
-                <p>Hellweg 666</p>
+                <p>Rippedweg 444</p>
                 <p>3982 Bitsch</p>
             </article>
     </section>
@@ -52,5 +52,6 @@
 <?php require('partials/footer.inc.html'); ?>
 <!-- Javascript -->
     <script src="js/code.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

@@ -111,22 +111,22 @@ section {
     }
 }
 
-#calculator {
-    max-width: 22em;
-    @include flexBox;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    padding: 2em;
-    margin: 8em auto 3em auto;
+// #calculator {
+//     max-width: 22em;
+//     @include flexBox;
+//     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+//     padding: 2em;
+//     margin: 8em auto 3em auto;
 
-    label, input {
-        @include regularFont;
-        margin: 0.5em;
-    }
+//     label, input {
+//         @include regularFont;
+//         margin: 0.5em;
+//     }
 
-    .register-info {
-        margin-bottom: 1em;
-    }
-}
+//     .register-info {
+//         margin-bottom: 1em;
+//     }
+// }
 
 /* Dashboard */ 
 
@@ -176,6 +176,12 @@ section {
 
 @media screen and (max-width: 599px) {
 
+    .home-header img {
+        width: 100%;
+        height: 100%;
+        clip-path: none;
+    }
+
     h1, h2 {
         font-size: 1.5rem;
     }
@@ -205,6 +211,10 @@ section {
         .register-form {
             margin-bottom: 15em;
         }
+    }
+
+    #contact p {
+        text-align: center;
     }
 
 }
