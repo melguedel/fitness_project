@@ -53,6 +53,10 @@ section {
         margin-bottom: 1em;
     }
 
+    .workout-row {
+        display: flex;
+    }
+
     .select-options {
         margin: 2em;
         @include boldFont;
@@ -63,6 +67,29 @@ section {
         outline: none;
         cursor: pointer;
         padding: 1em 5em;
+    }
+}
+
+.workout-card {
+    max-width: 22em;
+    @include flexBox;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    margin: 1em;
+
+    .exer-name {
+        @include mediumFont;
+        color: $red;
+    }
+
+    .exer-description {
+        color: $darkgrey;
+        @include regularFont;
+    }
+
+    .exer-category {
+        @include mediumFont;
+        color: $darkgrey;
     }
 }
 
@@ -100,6 +127,12 @@ section {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     padding: 2em;
     margin: 1em;
+
+    #validate-gender {
+        @include regularFont;
+        margin: 0.5em;
+        padding: 0.5em;
+    }
 
     label, input {
         @include regularFont;
@@ -182,6 +215,17 @@ section {
         clip-path: none;
     }
 
+    .header-side-article {
+
+        h1 {
+            color: $red;
+        }
+
+        p {
+            color: $red;
+        }
+    }
+
     h1, h2 {
         font-size: 1.5rem;
     }
@@ -223,6 +267,17 @@ section {
 
 @media screen and (min-width: 600px) {
 
+    .header-side-article {
+
+        h1 {
+            color: $red;
+        }
+
+        p {
+            color: $red;
+        }
+    }
+
     h1, h2 {
         font-size: 1.8rem;
     }
@@ -239,6 +294,33 @@ section {
 /* Desktop */
 
 @media screen and (min-width: 980px) {
+
+    h1, h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .side-nav {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+
+    .header-side-article {
+
+        h1 {
+            color: $darkgrey;
+        }
+
+        p {
+            color: $darkgrey;
+        }
+    }
 
     h1, h2 {
         font-size: 2rem;

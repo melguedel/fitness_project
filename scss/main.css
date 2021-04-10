@@ -324,6 +324,12 @@ section {
   margin-bottom: 1em;
 }
 
+#select-bodypart .workout-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #select-bodypart .select-options {
   margin: 2em;
   font-family: 'Work Sans', sans-serif;
@@ -337,6 +343,48 @@ section {
   outline: none;
   cursor: pointer;
   padding: 1em 5em;
+}
+
+.workout-card {
+  max-width: 22em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.workout-card .exer-name {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #c70039;
+}
+
+.workout-card .exer-description {
+  color: #222831;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.workout-card .exer-category {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #222831;
 }
 
 #contact {
@@ -401,6 +449,14 @@ section {
           box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   padding: 2em;
   margin: 1em;
+}
+
+.login-form #validate-gender, .register-form #validate-gender {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0.5em;
+  padding: 0.5em;
 }
 
 .login-form label, .login-form input, .register-form label, .register-form input {
@@ -498,6 +554,12 @@ section {
     -webkit-clip-path: none;
             clip-path: none;
   }
+  .header-side-article h1 {
+    color: #c70039;
+  }
+  .header-side-article p {
+    color: #c70039;
+  }
   h1, h2 {
     font-size: 1.5rem;
   }
@@ -538,6 +600,12 @@ section {
 
 /* Tablets */
 @media screen and (min-width: 600px) {
+  .header-side-article h1 {
+    color: #c70039;
+  }
+  .header-side-article p {
+    color: #c70039;
+  }
   h1, h2 {
     font-size: 1.8rem;
   }
@@ -551,6 +619,24 @@ section {
 
 /* Desktop */
 @media screen and (min-width: 980px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .side-nav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-side-article h1 {
+    color: #222831;
+  }
+  .header-side-article p {
+    color: #222831;
+  }
   h1, h2 {
     font-size: 2rem;
   }

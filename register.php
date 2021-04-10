@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['status'] = false;
 
-require('class/Credentials.php');
+require('prefs/Credentials.php');
 require('class/User.php');
 // require('../class/Formvalidation.php');
 require('class/Sanitize.php');
@@ -184,12 +184,12 @@ else {
         <label for="email">E-Mail<input type="email" id="validate-email" name="email" value="<?=$emailValue?>"></label>
         <label for="password">Password<input type="password" id="validate-password" name="password" value="<?=$passwordValue?>"></label>
         <!-- Terms and Conditions -->
-        <p>
+        <!-- <p>
             <label>
                 <input type="checkbox" id="validate-agb" name="agb" />
                 <span>Accept terms and conditions</span>
             </label>
-        </p>
+        </p> -->
 
         <!-- Fehlerausgabe -->
         <p class="error-message"><?=$errorMessage?></p>

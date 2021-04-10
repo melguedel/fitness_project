@@ -3,7 +3,7 @@
 <!-- Meta Data -->
 <?php require('partials/head.inc.html'); ?>
 <!-- Datenbank-Verbindung -->
-<?php require('class/Credentials.php'); ?>
+<?php require('prefs/Credentials.php'); ?>
 <body>
 <!-- Navigation -->
 <?php require('partials/topnav.inc.html');?>
@@ -22,18 +22,28 @@
         <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find specific exercises for your needs.</p>
     </section>
 <!-- Selector für bestimmte Übungen -->
-    <section id="select-bodypart">
+    <section id="select-bodypart" class="show-workouts">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
-        <select name="choose" class="select-options">
+        <?php 
+            // Alle Workouts aus der Datenbank holen
+            $sql = "SELECT * FROM exercise ORDER BY exer_category ASC";
+            $result = $pdo->query($sql);
+        ?>
+        <!-- <select name="choose" class="select-options">
             <option value="">Abdomen</option>
             <option value="">Arms</option>
             <option value="">Glutes</option>
             <option value="">Legs</option>
             <option value="">Stretching</option>
-        </select>
+        </select> -->
+        <div class="workout-row">
+            <?php while ($row = $result->fetch()): ?>
+                <?php include 'partials/card.php'?>
+            <?php endwhile; ?>
+        </div>
         <!-- Submit Button -->
-        <input type="submit" value="find exercise" name="find" class="btn">
+        <!-- <input type="submit" value="find exercise" name="find" class="btn"> -->
         <!-- Ausgabe von Datenbank Tabelle in HTML -->
         <div class="workout-selection"></div>
     </section>

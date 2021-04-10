@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('class/Credentials.php');
+require('prefs/Credentials.php');
 require('class/User.php');
 // User ID in Variable speichern
 $id = $_SESSION['userid'];
