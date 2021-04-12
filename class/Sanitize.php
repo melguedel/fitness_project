@@ -8,7 +8,7 @@ class Sanitize {
         // Trim, Remove Tags, XSS Schutz
         $str = trim($str);
         $str = strip_tags($str);
-        $str = htmlentities($str, ENT_QUOTES, 'UTF-8');
+        // $str = htmlentities($str, ENT_QUOTES, 'UTF-8');
         return $str;
     }
 }

@@ -1,9 +1,37 @@
+<?php 
+// Datenbank-Verbindung
+require('prefs/Credentials.php');
+//Zeige Workouts aus Datenbank
+require('class/Showexercise.php');
+// Sanitize Klasse integrieren
+require('class/Sanitize.php');
+// Instanziere Klasse
+$showexercise = new Showexercise($pdo);
+$sanitize = new Sanitize();
+// Variablen erstellen
+$abdomen = $sanitize->sanitizeInput($_POST['abdomen']);
+$arms = $sanitize->sanitizeInput($_POST['arms']);
+$glutes = $sanitize->sanitizeInput($_POST['glutes']);
+$legs = $sanitize->sanitizeInput($_POST['legs']);
+$yoga = $sanitize->sanitizeInput($_POST['yoga']);
+// Wurde der Button gedrückt, suche Workout-Übungen in DB
+if (isset($_POST['find'])) {
+    // Hole Workouts aus DB
+    $sql = "SELECT * FROM exercises ORDER BY exer_category ASC";
+    $result = $pdo->query($sql);
+    // Welche Option wurde gewählt?
+    if (isset($_POST['abdomen'])) {
+        // $sql = "SELECT * FROM exercises ORDER BY exer_name ASC";
+        // $result = $pdo->query($sql);
+    }
+} else {
+    // Zeige nichts an
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Meta Data -->
 <?php require('partials/head.inc.html'); ?>
-<!-- Datenbank-Verbindung -->
-<?php require('prefs/Credentials.php'); ?>
 <body>
 <!-- Navigation -->
 <?php require('partials/topnav.inc.html');?>
@@ -20,30 +48,32 @@
     <section id="about">
         <h2>What is this site about?</h2>
         <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find specific exercises for your needs.</p>
+        <p>Want to feel better, have more energy and even add years to your life? Just exercise. The health benefits of regular exercise and physical activity are hard to ignore. Everyone benefits from exercise, regardless of age, sex or physical ability. Regular trips to the gym are great, but don't worry if you can't find a large chunk of time to exercise every day. Any amount of activity is better than none at all. To reap the benefits of exercise, just get more active throughout your day — take the stairs instead of the elevator or rev up your household chores. Consistency is key. Winded by grocery shopping or household chores? Regular physical activity can improve your muscle strength and boost your endurance.
+            Exercise delivers oxygen and nutrients to your tissues and helps your cardiovascular system work more efficiently. And when your heart and lung health improve, you have more energy to tackle daily chores. Struggling to snooze? Regular physical activity can help you fall asleep faster, get better sleep and deepen your sleep. Just don't exercise too close to bedtime, or you may be too energized to go to sleep.</p>
     </section>
 <!-- Selector für bestimmte Übungen -->
     <section id="select-bodypart" class="show-workouts">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
-        <?php 
-            // Alle Workouts aus der Datenbank holen
-            $sql = "SELECT * FROM exercise ORDER BY exer_category ASC";
+            <!-- Alle Workouts aus der Datenbank holen -->
+            <?php
+            $sql = "SELECT * FROM exercises WHERE exer_category = Abdomen";
             $result = $pdo->query($sql);
         ?>
-        <!-- <select name="choose" class="select-options">
-            <option value="">Abdomen</option>
-            <option value="">Arms</option>
-            <option value="">Glutes</option>
-            <option value="">Legs</option>
-            <option value="">Stretching</option>
-        </select> -->
+        <select name="choose" class="select-options">
+            <option value="<?=$abdomen?>" name="abdomen">Abdomen</option>
+            <option value="<?=$arms?>" name="arms">Arms</option>
+            <option value="<?=$glutes?>" name="glutes">Glutes</option>
+            <option value="legs" name="legs">Legs</option>
+            <option value="yoga" name="yoga">Stretching</option>
+            <!-- Submit Button -->
+            <input type="submit" value="find exercise" name="find" class="btn">
+        </select>
         <div class="workout-row">
             <?php while ($row = $result->fetch()): ?>
                 <?php include 'partials/card.php'?>
             <?php endwhile; ?>
         </div>
-        <!-- Submit Button -->
-        <!-- <input type="submit" value="find exercise" name="find" class="btn"> -->
         <!-- Ausgabe von Datenbank Tabelle in HTML -->
         <div class="workout-selection"></div>
     </section>

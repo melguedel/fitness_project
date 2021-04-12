@@ -6,7 +6,7 @@ $(document).ready(function(){
 $(".register-form").submit(function(e) {
     // Neuladen der Seite verhindern
     e.preventDefault();
-
+    
     // Variablen erstellen
     let gender = $("#validate-gender").val();
     let username = $("#validate-username").val();

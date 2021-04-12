@@ -55,6 +55,9 @@ section {
 
     .workout-row {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 
     .select-options {
@@ -77,6 +80,11 @@ section {
     padding: 0.5em;
     margin: 1em;
 
+    .exer-picture {
+        width: 200px;
+        height: 200px;
+    }
+
     .exer-name {
         @include mediumFont;
         color: $red;
@@ -85,6 +93,7 @@ section {
     .exer-description {
         color: $darkgrey;
         @include regularFont;
+        text-align: center;
     }
 
     .exer-category {
@@ -144,51 +153,11 @@ section {
     }
 }
 
-// #calculator {
-//     max-width: 22em;
-//     @include flexBox;
-//     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-//     padding: 2em;
-//     margin: 8em auto 3em auto;
-
-//     label, input {
-//         @include regularFont;
-//         margin: 0.5em;
-//     }
-
-//     .register-info {
-//         margin-bottom: 1em;
-//     }
-// }
-
 /* Dashboard */ 
 
-.dashboard-main h1 {
+.dashboard-main {
     margin: 3em auto 1em auto;
     text-align: center;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 90%;
-    margin: 0 auto;
-    background: $lightgrey;
-}
-
-.profile-picture {
-    display: flex;
-    justify-content: row;
-
-    img {
-        max-width: 20em;
-        max-height: 20em;
-    }
-}
-
-.workout-section {
-    @include flexBox;
 }
 
 .workout-title {

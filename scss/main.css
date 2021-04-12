@@ -192,7 +192,7 @@ p {
 /* Error & Success Messages */
 .error-message {
   color: #9c0933;
-  margin: 0.5em;
+  margin: 0.1em;
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   line-height: 1.5;
@@ -328,6 +328,14 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #select-bodypart .select-options {
@@ -366,6 +374,11 @@ section {
   margin: 1em;
 }
 
+.workout-card .exer-picture {
+  width: 200px;
+  height: 200px;
+}
+
 .workout-card .exer-name {
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
@@ -378,6 +391,7 @@ section {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   line-height: 1.5;
+  text-align: center;
 }
 
 .workout-card .exer-category {
@@ -471,54 +485,9 @@ section {
 }
 
 /* Dashboard */
-.dashboard-main h1 {
+.dashboard-main {
   margin: 3em auto 1em auto;
   text-align: center;
-}
-
-.user-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 90%;
-  margin: 0 auto;
-  background: #dddddd;
-}
-
-.profile-picture {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: row;
-      -ms-flex-pack: row;
-          justify-content: row;
-}
-
-.profile-picture img {
-  max-width: 20em;
-  max-height: 20em;
-}
-
-.workout-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .workout-title {

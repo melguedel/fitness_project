@@ -11,9 +11,10 @@ if ($_SESSION['status'] == true) {
     // Methode aufrufen
     $showInfo = $userInfo->showInfos($id);
  } 
-// else {
-//     header('Location: register.php');
-// }
+else {
+    // header('Location: register.php');
+    echo "Oh no!";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,59 +37,15 @@ if ($_SESSION['status'] == true) {
         <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
-<!-- Main Content of dashboard -->
-<main class="dashboard-main">
-<!-- Profile of User -->
-<h1>Welcome back <?=$showInfo['username']?>!</h1>
-<!-- Section User Profil -->
-<section class="user-profile">
-    <!-- Profile Picture -->
-    <article class="profile-picture">
-        <img src="../img/beach.jpg" alt="woman on beach">
-    </article>
-    <!-- Info about User -->
-    <article class="user-info">
-        <p>Username: <?=$user?></p>
-        <p>Birthday:<?=$birthday?></p>
-        <p>Height:<?=$height?></p>
-        <p>Weight:<?=$weight?></p>
-    </article>
-</section>
-<!-- Show saved exercises of user in this section -->
+<!-- Willkommenstext mit Usernamen anzeigen -->
+<h1 class="dashboard-main">Welcome back <?=$showInfo['username']?>!</h1>
+<!-- Gespeicherte Workouts ausgeben -->
 <section class="workout-section">
-    <!-- Gespeicherte Workouts ausgeben -->
     <article class="workout-title">
         <h2>Your saved exercises</h2>
         <span class="horizontal-rule"></span>
     </article>
-    <!-- Titel der Übungsart -->
-    <article class="workout-title">
-        <h3>Abdomen</h3>
-        <span class="horizontal-rule"></span>
-    </article>
-    <!-- Titel der Übungsart -->
-    <article class="workout-title">
-        <h3>Arms</h3>
-        <span class="horizontal-rule"></span>
-    </article>
-    <!-- Titel der Übungsart -->
-    <article class="workout-title">
-        <h3>Glutes</h3>
-        <span class="horizontal-rule"></span>
-    </article>
-    <!-- Titel der Übungsart -->
-    <article class="workout-title">
-        <h3>Legs</h3>
-        <span class="horizontal-rule"></span>
-    </article>
-    <!-- Titel der Übungsart -->
-    <article class="workout-title">
-        <h3>Yoga</h3>
-        <span class="horizontal-rule"></span>
-    </article>
 </section>
-<!-- End of Main Section -->
-</main>
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>
 <!-- Javascript -->

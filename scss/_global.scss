@@ -26,7 +26,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
 }
 
 // Headlines & Paragraphs
@@ -170,7 +170,7 @@ p {
 
 .error-message {
     color: $darkred;
-    margin: 0.5em;
+    margin: 0.1em;
     @include mediumFont;
 }
 

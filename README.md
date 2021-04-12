@@ -3,7 +3,7 @@
 
 > Autor
 
-° Melody Joy Güdel
+° Melody Joy Güdel <br>
 ° WDD 919
 
 > Introduction
@@ -34,10 +34,10 @@ This project is a fitness inspired website, which lets the user of the site crea
 
 ° htaccess- File <br>
 ° gitignore- File <br>
-° Model Folder, with <b>credentials.php</b>- File to access Database<br>
+° Prefs Folder, with <b>credentials.php</b>- File to access Database<br>
 ° Class Folder, with all .class-Files including a <b>Credentials.php</b>- File to access Database<br>
 ° SCSS Folder with all CSS & SCSS Files<br>
-° Javascript Folder with Script<br>
+° Javascript Folder with Scripts<br>
 ° Images Folder containing all images of the project<br>
 ° Favicon Folder including all Favicon image types <br>
 ° Partials Folder including HTML- Files <br>
@@ -57,7 +57,7 @@ To access the personal profile, log in with: <br>
 <b>Password:</b> Root, if you use MAMP <br>
 <b>Database Name:</b> fitness_site <br>
 
-> Projects includes:
+> Technology used:
 
 ° SCSS / SASS <br>
 ° AJAX<br>

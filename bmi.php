@@ -10,7 +10,7 @@ $sanitize = new Sanitize();
 <!-- Meta Data -->
 <?php require('partials/head.inc.html'); ?>
 <!-- Datenbank-Verbindung -->
-<?php require('class/Credentials.php'); ?>
+<?php require('prefs/Credentials.php'); ?>
 <body>
 <!-- Fixed top Navigation -->
 <nav class="top-nav">
@@ -45,11 +45,6 @@ if (isset($_GET['calculate'])) {
     $weight = $sanitize->sanitizeInput($_GET['body-weight']);
     // Methode aufrufen
     $bmi = $bmi->calculateBMI($height, $weight);
-    // function calculateBMI($weight, $height) {
-    //     $bmi = $weight/($height*$height);
-    //     return $bmi;
-    // }
-    // $bmi = calculateBMI($weight, $height);
     // Ausgabe an den User mit Info
     if ($bmi < 16) {
             $info = "you are extremely underweight!";
@@ -74,6 +69,6 @@ if (isset($_GET['calculate'])) {
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>
 <!-- Javascript -->
-    <script src="js/code.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
