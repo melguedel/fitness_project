@@ -8,6 +8,8 @@
 
 .home-header {
 
+    height: 100vh;
+
     img {
         max-width: 100%;
         max-height: 100vh;
@@ -24,18 +26,13 @@
     text-align: center;
 }
 
-/* Sections general */
-
-section {
-    height: 100vh;
-}
-
 // About Section
 
 #about {
     text-align: center;
     @include flexBox;
     background: $lightgrey;
+    height: 100vh;
 
     h2 {
         margin-bottom: 1em;
@@ -48,6 +45,7 @@ section {
 
 #select-bodypart {
     @include flexBox;
+    padding: 3em;
 
     h2 {
         margin-bottom: 1em;
@@ -88,17 +86,20 @@ section {
     .exer-name {
         @include mediumFont;
         color: $red;
+        padding: 0.5em;
     }
 
     .exer-description {
         color: $darkgrey;
         @include regularFont;
         text-align: center;
+        padding: 0.8em;
     }
 
     .exer-category {
         @include mediumFont;
         color: $darkgrey;
+        padding: 0.5em;
     }
 }
 
@@ -107,6 +108,7 @@ section {
 #contact {
     @include flexBox;
     background: $lightgrey;
+    height: 100vh;
 
     h2 {
         margin-bottom: 1em;
@@ -187,20 +189,23 @@ section {
     .header-side-article {
 
         h1 {
-            color: $red;
+            color: $lightgrey;
+            font-size: 1.8rem;
         }
 
         p {
-            color: $red;
+            color: $lightgrey;
+            font-size: 1.5rem;
         }
     }
 
     h1, h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     p {
-        font-size: 0.9rem;
+        text-align: center;
+        font-size: 1.2rem;
     }
 
     .top-nav {
@@ -236,6 +241,11 @@ section {
 
 @media screen and (min-width: 600px) {
 
+    .home-header img {
+        width: 70%;
+        height: 100%;
+    }
+
     .header-side-article {
 
         h1 {
@@ -252,7 +262,7 @@ section {
     }
 
     p {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 
     .side-nav {
@@ -263,6 +273,26 @@ section {
 /* Desktop */
 
 @media screen and (min-width: 980px) {
+
+    .home-header img {
+
+        max-width: 60%;
+        max-height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 51% 100%, 0% 100%);
+    }
+
+    .header-side-article {
+
+        h1 {
+            color: $darkgrey;
+            font-size: 2rem;
+        }
+
+        p {
+            color: $darkgrey;
+            font-size: 1.2rem;
+        }
+    }
 
     h1, h2 {
         font-size: 2rem;
@@ -280,14 +310,23 @@ section {
 
 @media screen and (min-width: 1280px) {
 
+    .home-header img {
+
+        max-width: 80%;
+            max-height: 100vh;
+            clip-path: polygon(0 0, 100% 0, 51% 100%, 0% 100%);
+    }
+
     .header-side-article {
 
         h1 {
             color: $darkgrey;
+            font-size: 2rem;
         }
 
         p {
             color: $darkgrey;
+            font-size: 1rem;
         }
     }
 

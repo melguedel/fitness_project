@@ -70,18 +70,6 @@ public function validateInput($input, $required, $elementName = "", $art="", $fe
 
 }
 
-    /* Funktionen für Registration */
-
-    // Funktion zur "Reinigung und Desinfektion" des Unserinputs
-    // private function killDangerousInput($str){
-    //     // $str = trim($str);
-    //     // $str = strip_tags($str);
-    //     // $str = htmlspecialchars($str);
-    //     $newString = filter_var($str, FILTER_SANITIZE_STRING);
-    //     $newString = trim($newString);
-    //     return $newString;
-    // }
-
     // Funktion um zu prüfen ob Input eine E-Mail ist
     private function email($str) {
         if (filter_var($str, FILTER_VALIDATE_EMAIL)) {

@@ -14,8 +14,11 @@ public function __construct (PDO $pdo) {
 
 // Methode
 
-public function getExercise() {
-
+public function getExercise($query, $params = array()) {
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute($params);
+    $result = $stmt->fetchAll();
+    return $result;
 }
 
 }

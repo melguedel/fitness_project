@@ -8,25 +8,13 @@ require('class/Sanitize.php');
 // Instanziere Klasse
 $showexercise = new Showexercise($pdo);
 $sanitize = new Sanitize();
-// Variablen erstellen
-$abdomen = $sanitize->sanitizeInput($_POST['abdomen']);
-$arms = $sanitize->sanitizeInput($_POST['arms']);
-$glutes = $sanitize->sanitizeInput($_POST['glutes']);
-$legs = $sanitize->sanitizeInput($_POST['legs']);
-$yoga = $sanitize->sanitizeInput($_POST['yoga']);
+
 // Wurde der Button gedrückt, suche Workout-Übungen in DB
 if (isset($_POST['find'])) {
-    // Hole Workouts aus DB
-    $sql = "SELECT * FROM exercises ORDER BY exer_category ASC";
-    $result = $pdo->query($sql);
-    // Welche Option wurde gewählt?
-    if (isset($_POST['abdomen'])) {
-        // $sql = "SELECT * FROM exercises ORDER BY exer_name ASC";
-        // $result = $pdo->query($sql);
-    }
-} else {
-    // Zeige nichts an
-};
+    // ausgewählte workout kategorie in variable speichern
+    $exer_cat = $_POST['choose'];
+    $exer = $showexercise->getExercise("SELECT * from `exercise` WHERE exer_category = :cat",['cat' => $exer_cat]);
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,24 +43,25 @@ if (isset($_POST['find'])) {
     <section id="select-bodypart" class="show-workouts">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
-            <!-- Alle Workouts aus der Datenbank holen -->
-            <?php
-            $sql = "SELECT * FROM exercises WHERE exer_category = Abdomen";
-            $result = $pdo->query($sql);
-        ?>
+        <form method="POST">
         <select name="choose" class="select-options">
-            <option value="<?=$abdomen?>" name="abdomen">Abdomen</option>
-            <option value="<?=$arms?>" name="arms">Arms</option>
-            <option value="<?=$glutes?>" name="glutes">Glutes</option>
+            <option value="abdomen" name="abdomen">Abdomen</option>
+            <option value="arms" name="arms">Arms</option>
+            <option value="glutes" name="glutes">Glutes</option>
             <option value="legs" name="legs">Legs</option>
-            <option value="yoga" name="yoga">Stretching</option>
-            <!-- Submit Button -->
-            <input type="submit" value="find exercise" name="find" class="btn">
-        </select>
+            <option value="yoga" name="yoga">Yoga</option>
+        </select>  
+        <!-- Submit Button -->
+        <input type="submit" value="find exercise" name="find" class="btn">
+        </form>
         <div class="workout-row">
-            <?php while ($row = $result->fetch()): ?>
-                <?php include 'partials/card.php'?>
-            <?php endwhile; ?>
+            <?php 
+            if(isset($exer)){
+               foreach($exer as $row){ 
+                    include("partials/card.php");
+                    } 
+                }
+            ?>
         </div>
         <!-- Ausgabe von Datenbank Tabelle in HTML -->
         <div class="workout-selection"></div>

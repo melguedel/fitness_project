@@ -15,7 +15,7 @@ $(".register-form").submit(function(e) {
     let agb = $("#validate-agb").val();
     let submit = $("#validate-submit").val();
 
-    $(".error-message").load("Validation.php", {
+    $("#register-error").load("Checkvalidation.php", {
         gender: gender,
         username: username,
         email: email,

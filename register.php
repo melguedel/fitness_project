@@ -5,57 +5,42 @@ $_SESSION['status'] = false;
 require('prefs/Credentials.php');
 require('class/User.php');
 require('class/Sanitize.php');
-require('class/Register.php');
 
 // Instanzieren der Klassen
-// $formValidation = new formValidation($pdo);
 $sanitize = new Sanitize();
 $checkUser = new User($pdo);
-$userRegistration = new Register($pdo);
  
+   // Errormessage auf leer stellen
+   $errorMessage = "";
 // Wurde der Submit-Button des Logins gedrückt?
 if ( isset ($_POST['login']) ) {
-
-    // Errormessage auf leer stellen
-    $errorMessage = "";
-
     // Variablen erstellen
     $user = $sanitize->sanitizeInput($_POST['userName']);
     $pass = $sanitize->sanitizeInput($_POST['pass']);
-    // Methode für Login aufrufen
-    $loginCheck = $checkUser->loginUser($user, $pass);
-    var_dump($loginCheck);
-
-    if (empty($user) && empty($pass)) {
+ 
+    // kontrollieren ob username und password eingebeben ist
+    if (empty($user) || empty($pass)) {
         $errorMessage = "<p class=\"error-message\">Enter Username & Password</p>\n";
-    } else if (empty($pass)) {
-        $errorMessage = "<p class=\"error-message\">Enter Password</p>\n";
-    } else if (empty($user)) {
-        $errorMessage = "<p class=\"error-message\">Enter Username</p>\n";
-    } else if (!$loginCheck) {
-        $errorMessage = "<p class=\"error-message\">User not found!</p>\n";
-    } else {
-        $_SESSION['status'] = true;
-        $_SESSION['userid'] = $loginCheck['id'];
-        header('Location: dashboard.php');
-    }
+    }else{
+        // DB abfrage, ob der username im DB existiert
+        $loginCheck = $checkUser->loginUser($user);
 
-    // if(!$loginCheck) {
-    //     $errorMessage = "<p class=\"error-message\">Enter Username & Password</p>\n";
-    //     // $errorMessage = "Enter Username & Password";
-    //     // echo "<p class=\"error-message\">Enter Username & Password</p>\n";
-    // } else if ( empty($user) ) {
-    //     $errorMessage = "<p class=\"error-message\">Enter Username</p>\n";
-    //     // echo "<p class=\"error-message\">Enter Username</p>\n";
-    // } else if ( empty($pass)) {
-    //     $errorMessage = "<p class=\"error-message\">Enter Password</p>\n";
-    //     // echo "<p class=\"error-message\">Enter Password</p>\n";
-    // } else {
-    //     $_SESSION['status'] = true;
-    //     $_SESSION['userid'] = $loginCheck['id'];
-    //     header('Location: dashboard.php');
-    // } // Ende von Login Validierung
-    // Ende von erster If-Abfrage
+        // wenn user nicht existiert, fehlermeldung erzeugen
+        if (!$loginCheck) {
+            $errorMessage = "<p class=\"error-message\">User not found!</p>\n";
+        } else {
+            // var_dump($loginCheck);
+            // passwort vergleichen, wenn passt weiterleiten
+            if(password_verify($pass,$loginCheck['password'])){
+                $_SESSION['status'] = true;
+                $_SESSION['userid'] = $loginCheck['id'];
+                header('Location: dashboard.php'); 
+            }else{
+                // wenn nicht, fehlermeldung
+                $errorMessage = "<p class=\"error-message\">Wrong Password!</p>\n";
+            }
+        }
+    }
 }
 else {
     // Falls noch nichts eingegeben wurde, alles auf leer setzen
@@ -64,21 +49,11 @@ else {
     $errorMessage = "";
 }
 
-
-// Wurde der Submit-Button der Registration gedrückt?
-if (isset ($_POST['submit'])) {
-    // var_dump($_POST);
-
-    // Errormessages auf leer stellen
+// Errormessages auf leer stellen
         $registerError = "";
         $successMessage = "";
-
-    // Variablen erstellen
-    // $usernameValue = $sanitize -> sanitizeInput($_POST['username'], true, "Username", "min_length-2|max_length-40", "Username must be at least 2 characters and maximum 40 characters.");
-    // $passwordValue = $sanitize -> sanitizeInput($_POST['password'], true, "Password", "min_length-8|max_length-40", "Password must be at least 8 characters and maximum 40 characters.");
-    // $emailValue = $sanitize -> sanitizeInput($_POST['email'], true, "E-Mail", "email", "This ist not a valid e-mail address.");
-    // $errorMessage = $userInstance -> registrationsKontrolle($user, $pass);
-
+// Wurde der Submit-Button der Registration gedrückt?
+if (isset ($_POST['submit'])) {
         // Variablen erstellen und Input "reinigen"
         $gender = $sanitize->sanitizeInput($_POST['gender']);
         $usernameValue = $sanitize->sanitizeInput($_POST['username']);
@@ -87,10 +62,7 @@ if (isset ($_POST['submit'])) {
 
         // Passwort hashen
         $passwordHash = password_hash($passwordValue, PASSWORD_DEFAULT);
-
-        // Klasse instanzieren
-        // $successRegistration = $userRegistration->registerUser($gender, $usernameValue, $emailValue, $passwordHash);
-
+    
         // Wurden alle Inputfelder ausgefüllt?
         if (empty($usernameValue)) {
             // Wenn nichts eingetragen wurde:
@@ -104,9 +76,19 @@ if (isset ($_POST['submit'])) {
             // Wenn die AGB nicht angekreuzt wurden
             $registerError = "<p class=\"error-message\">Check terms and conditions</p>\n";
         } else {
-            // Wenn alles stimmt, in Datenbank eintragen
-            $userRegistration->registerUser($gender, $usernameValue, $emailValue, $passwordHash);
-            $successMessage = "<p class=\"success-message\">You are registered!</p>\n";
+            // kontrollieren, ob email schon im DB vorhanden ist
+            $compEmail = $checkUser->compareEmail($emailValue);
+            if(!$compEmail){
+                // Wenn alles stimmt, in Datenbank eintragen
+                $checkUser->registerUser([
+                'gender'=>$gender, 
+                'username' => $usernameValue,
+                'mail' => $emailValue, 
+                'password' =>$passwordHash]);
+                $successMessage = "<p class=\"success-message\">You are registered!</p>\n"; 
+            }else{
+                $registerError = "<p class=\"error-message\">Email already taken</p>\n";
+            }
         }
 }
 else {
@@ -177,7 +159,7 @@ $(document).ready(function() {
 <body>
 
 <!-- Navigation -->
-
+<?php require('partials/topnav.inc.html'); ?>
 
 <!-- Register and Login Forms -->
 <section class="form-section">
@@ -186,7 +168,7 @@ $(document).ready(function() {
         <h2>Login</h2>
         <p class="register-info">to existing profile</p>
         <label for="userName">Username<input type="text" name="userName" value="<?=$user?>"></label>
-        <label for="pass">Password<input type="password" name="pass" value="<?=$pass?>"></label>
+        <label for="pass">Password<input type="password" name="pass"></label>
         <!-- Fehlerausgabe -->
         <?php if ($errorMessage) : ?>
         <p class="error-message"><?=$errorMessage?></p>
