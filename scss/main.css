@@ -437,7 +437,7 @@ footer h3 {
 
 /* Register and Login Forms */
 .form-section {
-  margin-top: 2em;
+  margin-top: 4em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -467,7 +467,7 @@ footer h3 {
   -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   padding: 2em;
-  margin: 1em;
+  margin: 2em;
 }
 
 .login-form #validate-gender, .register-form #validate-gender {

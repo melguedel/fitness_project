@@ -1,7 +1,7 @@
 <?php 
 // Datenbank-Verbindung
 require('prefs/Credentials.php');
-//Zeige Workouts aus Datenbank
+// Zeige Workouts aus Datenbank
 require('class/Showexercise.php');
 // Sanitize Klasse integrieren
 require('class/Sanitize.php');
@@ -11,7 +11,7 @@ $sanitize = new Sanitize();
 
 // Wurde der Button gedrückt, suche Workout-Übungen in DB
 if (isset($_POST['find'])) {
-    // ausgewählte workout kategorie in variable speichern
+    // Ausgewählte Workout-Kategorie in Variable speichern
     $exer_cat = $_POST['choose'];
     $exer = $showexercise->getExercise("SELECT * from `exercise` WHERE exer_category = :cat",['cat' => $exer_cat]);
 } 
@@ -54,6 +54,7 @@ if (isset($_POST['find'])) {
         <!-- Submit Button -->
         <input type="submit" value="find exercise" name="find" class="btn">
         </form>
+        <!-- Zeige gewählte Kategorie in Cards an -->
         <div class="workout-row">
             <?php 
             if(isset($exer)){
@@ -64,7 +65,7 @@ if (isset($_POST['find'])) {
             ?>
         </div>
         <!-- Ausgabe von Datenbank Tabelle in HTML -->
-        <div class="workout-selection"></div>
+        <!-- <div class="workout-selection"></div> -->
     </section>
 <!-- Contact Section -->
     <section id="contact">

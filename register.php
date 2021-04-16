@@ -136,25 +136,7 @@ else {
     <!-- Title -->
     <title>Fitness Project</title>
 
-    <!-- <script>
-$(document).ready(function() {                 
-    $(".login-form").submit(function(e){
-      e.preventDefault();
-      $.ajax({
-      url:'register.php',
-      type:'POST',
-      data: {username:$("#validate-username").val(), password:$("#validate-password").val()},
-      success: function(resp) {
-         if(resp == "invalid") {
-          $("#register-error").html("Invalid username and password!");  
-         } else {
-          window.location.href= resp;
-         }
-      }
-     });
-  });
-});
-    </script> -->
+    
 </head>
 <body>
 
@@ -199,14 +181,14 @@ $(document).ready(function() {
         </p>
             <div id="alert"></div>
         <!-- Fehlerausgabe -->
-        <!-- <p class="error-message" id="register-error"></p> -->
+        <p class="error-message" id="register-error"></p>
         <?php if ($registerError) : ?>
         <p class="error-message"><?=$registerError?></p>
         <?php endif; ?>
         <!-- Positives Feedback -->
         <p class="success-message"><?=$successMessage?></p>
         <!-- Submit Button -->
-        <input type="submit" class="btn" name="submit" value="Register" id="validate-submit"></input>
+        <input type="submit" class="btn" name="submit" value="submit" id="validate-submit"></input>
     </form>
 </section>
     <!-- Footer -->
@@ -215,5 +197,62 @@ $(document).ready(function() {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Other JS -->
     <script src="js/menu.js"></script>
+
+    <script>
+// $(document).ready(function() {                 
+//     $(".login-form").submit(function(e){
+//       e.preventDefault();
+//       $.ajax({
+//       url:'/test.php',
+//       type:'POST',
+//       data: {username:$("#validate-username").val(), password:$("#validate-password").val()},
+//       success: function(resp) {
+//          if(resp == "invalid") {
+//           $("#register-error").html("Invalid username and password!");  
+//          } else {
+//           window.location.href= resp;
+//          }
+//       }
+//      });
+//   });
+// });
+
+
+$(document).ready(function(){
+
+$(".register-form").submit(function(e) {
+    // Neuladen der Seite verhindern
+    console.log('bitchesss');
+    e.preventDefault();
+    console.log('test2');
+    // Variablen erstellen
+    let gender = $("#validate-gender").val();
+    let username = $("#validate-username").val();
+    let email = $("#validate-email").val();
+    let password = $("#validate-password").val();
+    let agb = $("#validate-agb").val();
+    let submit = $("#validate-submit").val();
+
+    console.table({
+        gender: gender,
+        username: username,
+        email: email,
+        password: password,
+        agb: agb,
+        submit: submit
+    })
+
+    $("#register-error").load("Checkvalidation.php", {
+        gender: gender,
+        username: username,
+        email: email,
+        password: password,
+        agb: agb,
+        submit: submit
+    });
+});
+
+});
+    </script>
 </body>
 </html>
