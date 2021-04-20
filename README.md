@@ -9,14 +9,14 @@
 > Introduction
 
 Module WBD 5204 - Web Application <br>
-This project is a fitness inspired website, which lets the user of the site create a profile with workouts.
+This project is a fitness inspired website, which lets the user of the site create a profile through registration and save workouts to their account.
 
  > Site Contents
 
 ° Landing Page <br>
 ° Login and Registration Forms <br>
 ° BMI Calculator <br>
-° Dashboard (only available trough Login)<br>
+° Dashboard (only available through Login)<br>
 
  > Requirements
 
@@ -24,7 +24,7 @@ This project is a fitness inspired website, which lets the user of the site crea
 ° Login- & Registration with asynchronous form validation<br>
 ° Asynchronous Secure Data Transfer <br>
 ° Datamanipulation with PHP/ MySQL <br>
-° Administration Tool (only available trough Login)
+° Administration Tool (only available through Login)
 
  > Optional
 
@@ -63,6 +63,7 @@ To access the personal profile, log in with: <br>
 ° AJAX<br>
 ° OOP <br>
 ° PHP & MySQL <br>
+° Toastr <br>
 
 
 

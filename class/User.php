@@ -12,7 +12,6 @@ public function __construct (PDO $pdo) {
 }
 
 // Methoden für Login
-
 public function fetchAll($sql, $params = array()){
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute($params);
@@ -31,7 +30,8 @@ public function loginUser($user) {
     $userCheck = $stmt -> fetch();
     return $userCheck;
 }
-// vergleiche email adresse
+
+// Vergleiche Email-Adresse
 public function compareEmail($email) {
     // Datenbank- Abfrage
     $query = "SELECT * FROM users WHERE mail = :mail";
@@ -39,6 +39,18 @@ public function compareEmail($email) {
     $stmt = $this->pdo->prepare($query);
     // Statement ausführen
     $stmt -> execute(['mail' => $email]);
+    $userCheck = $stmt -> fetch();
+    return $userCheck;
+}
+
+// Vergleiche Username
+public function compareUser($user) {
+    // Datenbank- Abfrage
+    $query = "SELECT * FROM users WHERE username = :username";
+    // Prepared Statement erstellen
+    $stmt = $this->pdo->prepare($query);
+    // Statement ausführen
+    $stmt -> execute(['username' => $user]);
     $userCheck = $stmt -> fetch();
     return $userCheck;
 }

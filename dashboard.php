@@ -12,8 +12,8 @@ if ($_SESSION['status'] == true) {
     $showInfo = $userInfo->showInfos($id);
  } 
 else {
-    // header('Location: register.php');
-    echo "Oh no!";
+    header('Location: register.php');
+    echo "Could not log in!";
 }
 ?>
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ else {
 <!-- Fixed top Navigation -->
 <nav class="top-nav">
     <ul>
+        <li><a href="index.php" class="home">Home</a></li>
         <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
@@ -34,6 +35,7 @@ else {
 <nav class="side-nav">
     <i class="fas fa-times" onclick="closeMenu()"></i>
     <ul>
+        <li><a href="index.php" class="home">Home</a></li>
         <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>

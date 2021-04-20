@@ -77,6 +77,7 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     padding: 0.5em;
     margin: 1em;
+    text-align: center;
 
     .exer-picture {
         width: 200px;
@@ -84,9 +85,11 @@
     }
 
     .exer-name {
-        @include mediumFont;
+        // @include mediumFont;
+        @include boldFont;
         color: $red;
         padding: 0.5em;
+        // text-align: center;
     }
 
     .exer-description {
@@ -97,7 +100,8 @@
     }
 
     .exer-category {
-        @include mediumFont;
+        @include boldFont;
+        // @include mediumFont;
         color: $darkgrey;
         padding: 0.5em;
     }
@@ -168,10 +172,11 @@
 }
 
 .horizontal-rule {
+    display: inline-block;
     height: 4px;
     width: 8em;
     background: $darkgrey;
-    margin-top: 0.5em;
+    margin-top: 0.2em;
 }
 
 /* Media Queries */
@@ -263,6 +268,7 @@
 
     p {
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .side-nav {

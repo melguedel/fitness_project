@@ -3,17 +3,13 @@
 require('prefs/Credentials.php');
 // Zeige Workouts aus Datenbank
 require('class/Showexercise.php');
-// Sanitize Klasse integrieren
-require('class/Sanitize.php');
 // Instanziere Klasse
 $showexercise = new Showexercise($pdo);
-$sanitize = new Sanitize();
 
 // Wurde der Button gedrückt, suche Workout-Übungen in DB
 if (isset($_POST['find'])) {
-    // Ausgewählte Workout-Kategorie in Variable speichern
     $exer_cat = $_POST['choose'];
-    $exer = $showexercise->getExercise("SELECT * from `exercise` WHERE exer_category = :cat",['cat' => $exer_cat]);
+    $exer = $showexercise->getExercise("SELECT * FROM `exercise` WHERE exer_category = :cat",['cat' => $exer_cat]);
 } 
 ?>
 <!DOCTYPE html>
@@ -43,8 +39,8 @@ if (isset($_POST['find'])) {
     <section id="select-bodypart" class="show-workouts">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
-        <form method="POST">
-        <select name="choose" class="select-options">
+        <form class="exercise-form" method="POST">
+        <select id="exercise-option" name="choose" class="select-options">
             <option value="abdomen" name="abdomen">Abdomen</option>
             <option value="arms" name="arms">Arms</option>
             <option value="glutes" name="glutes">Glutes</option>
@@ -52,20 +48,10 @@ if (isset($_POST['find'])) {
             <option value="yoga" name="yoga">Yoga</option>
         </select>  
         <!-- Submit Button -->
-        <input type="submit" value="find exercise" name="find" class="btn">
+        <input type="submit" value="Show exercises!" name="find" class="btn">
         </form>
-        <!-- Zeige gewählte Kategorie in Cards an -->
-        <div class="workout-row">
-            <?php 
-            if(isset($exer)){
-               foreach($exer as $row){ 
-                    include("partials/card.php");
-                    } 
-                }
-            ?>
-        </div>
-        <!-- Ausgabe von Datenbank Tabelle in HTML -->
-        <!-- <div class="workout-selection"></div> -->
+        <!-- Zeige gewählte Workout-Kategorie in Cards an -->
+        <div class="workout-row"></div> 
     </section>
 <!-- Contact Section -->
     <section id="contact">
@@ -83,5 +69,16 @@ if (isset($_POST['find'])) {
 <!-- Javascript -->
     <script src="js/code.js"></script>
     <script src="js/menu.js"></script>
+    <script>
+        $(document).ready(function(){
+        // Neuladen der Seite verhindern
+        $(".exercise-form").submit(function(e) {
+            e.preventDefault();
+            // Variablen erstellen
+            let choosenOption = $("#exercise-option :selected").val();    
+            $(".workout-row").load("partials/exercise.php", { value: choosenOption });
+            });
+        });
+    </script>
 </body>
 </html>
