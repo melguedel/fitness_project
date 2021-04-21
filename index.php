@@ -3,6 +3,7 @@
 require('prefs/Credentials.php');
 // Zeige Workouts aus Datenbank
 require('class/Showexercise.php');
+
 // Instanziere Klasse
 $showexercise = new Showexercise($pdo);
 
@@ -78,6 +79,7 @@ if (isset($_POST['find'])) {
             let choosenOption = $("#exercise-option :selected").val();    
             $(".workout-row").load("partials/exercise.php", { value: choosenOption });
             });
+          
         });
     </script>
 </body>

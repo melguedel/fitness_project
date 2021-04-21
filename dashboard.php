@@ -46,11 +46,18 @@ else {
     <article class="workout-title">
         <h2>Your saved exercises</h2>
         <span class="horizontal-rule"></span>
+        <div class="workout-row"></div> 
     </article>
 </section>
 <!-- Footer -->
 <?php require('partials/footer.inc.html'); ?>
 <!-- Javascript -->
 <script src="js/menu.js"></script>
+<script>
+      $(document).ready(function(){
+        // Gespeicherte Übungen vom Benutzer
+        $(".workout-row").load("partials/showuserexercises.php", { user_id: <?php echo $_SESSION['userid'] ?> });
+        });
+</script>
 </body>
 </html>

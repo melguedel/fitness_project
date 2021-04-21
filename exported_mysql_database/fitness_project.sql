@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 08. Apr 2021 um 19:00
+-- Erstellungszeit: 21. Apr 2021 um 17:26
 -- Server-Version: 5.7.24
 -- PHP-Version: 7.4.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `fitness_site`
+-- Datenbank: `fitness_project`
 --
 
 -- --------------------------------------------------------
@@ -70,6 +70,27 @@ INSERT INTO `exercise` (`id`, `exer_picture`, `exer_name`, `exer_description`, `
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `saved_workouts`
+--
+
+CREATE TABLE `saved_workouts` (
+  `user_id` int(11) NOT NULL,
+  `saved_exer` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `saved_workouts`
+--
+
+INSERT INTO `saved_workouts` (`user_id`, `saved_exer`) VALUES
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9);
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `users`
 --
 
@@ -86,7 +107,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `gender`, `username`, `mail`, `password`) VALUES
-(1, 'other', 'testUser', 'test@test.ch', '$2y$10$.BEI2ZObJfGKN.j19Rx.0.ffaiTAdkB4S7Bp0SrA.aE3vvZs7iL.2');
+(1, 'other', 'testUser', 'test@test.ch', '$2y$10$.BEI2ZObJfGKN.j19Rx.0.ffaiTAdkB4S7Bp0SrA.aE3vvZs7iL.2'),
+(2, 'female', 'pikachu', 'pika@chu.ch', '$2y$10$UQXoRENUbTYr0JEQuyhdYuT3o2pyP9rn9.o2pMSt8HQE22ynUsjt.'),
+(12, 'female', 'Wonder Woman', 'wonder@woman.ch', '$2y$10$E3daUSuEaAWb1V.Njm9hqOQAFovnBQKKZGNpd8a9dpkbvV.iov3RK');
 
 --
 -- Indizes der exportierten Tabellen
@@ -97,6 +120,13 @@ INSERT INTO `users` (`id`, `gender`, `username`, `mail`, `password`) VALUES
 --
 ALTER TABLE `exercise`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `saved_workouts`
+--
+ALTER TABLE `saved_workouts`
+  ADD PRIMARY KEY (`user_id`,`saved_exer`),
+  ADD KEY `saved_exer` (`saved_exer`);
 
 --
 -- Indizes für die Tabelle `users`
@@ -118,7 +148,18 @@ ALTER TABLE `exercise`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `saved_workouts`
+--
+ALTER TABLE `saved_workouts`
+  ADD CONSTRAINT `saved_workouts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `saved_workouts_ibfk_2` FOREIGN KEY (`saved_exer`) REFERENCES `exercise` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

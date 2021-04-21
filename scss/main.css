@@ -189,6 +189,18 @@ p {
   transition: all 0.2s ease-out;
 }
 
+.disabled {
+  color: #222831;
+  background: #615f5f;
+  padding: 0.5em 4em;
+  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+          clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  text-decoration: none;
+  margin: 1em;
+  border: none;
+  cursor: pointer;
+}
+
 /* Error & Success Messages */
 .error-message {
   color: #9c0933;
@@ -511,6 +523,7 @@ footer h3 {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 3em;
+  color: #c70039;
 }
 
 .horizontal-rule {

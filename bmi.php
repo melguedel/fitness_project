@@ -1,9 +1,9 @@
 <?php
 require('class/Bmi.php');
-require('class/Sanitize.php');
+require('class/Errorhandling.php');
 // Instanziere Klassen
 $bmi = new BodyMassIndex();
-$sanitize = new Sanitize();
+$sanitize = new Errorhandler();
 ?>
 <!DOCTYPE html>
 <html lang="en">

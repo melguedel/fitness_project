@@ -166,6 +166,17 @@ p {
     }
 }
 
+.disabled {
+    color: $darkgrey;
+    background: $grey;
+    padding: 0.5em 4em;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    text-decoration: none;
+    margin: 1em;
+    border: none;
+    cursor: pointer;
+}
+
 /* Error & Success Messages */
 
 .error-message {

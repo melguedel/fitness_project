@@ -169,6 +169,7 @@
 .workout-title {
     @include flexBox;
     margin-bottom: 3em;
+    color: $red;
 }
 
 .horizontal-rule {

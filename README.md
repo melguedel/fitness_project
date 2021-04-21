@@ -1,7 +1,7 @@
 🏃‍ CONTENTS OF THIS PROJECT 👟
 ---------------------
 
-> Autor
+> Author
 
 ° Melody Joy Güdel <br>
 ° WDD 919
