@@ -289,6 +289,7 @@ footer h3 {
   text-align: center;
 }
 
+/* About Section */
 #about {
   text-align: center;
   display: -webkit-box;
@@ -418,6 +419,7 @@ footer h3 {
   padding: 0.5em;
 }
 
+/* Contact Section */
 #contact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -506,6 +508,20 @@ footer h3 {
 .dashboard-main {
   margin: 3em auto 1em auto;
   text-align: center;
+}
+
+.workout-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .workout-title {

@@ -32,7 +32,7 @@ if (isset($_POST['find'])) {
 <!-- Main -->
     <section id="about">
         <h2>What is this site about?</h2>
-        <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find specific exercises for your needs.</p>
+        <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find exercises that fit your needs.</p>
         <p>Want to feel better, have more energy and even add years to your life? Just exercise. The health benefits of regular exercise and physical activity are hard to ignore. Everyone benefits from exercise, regardless of age, sex or physical ability. Regular trips to the gym are great, but don't worry if you can't find a large chunk of time to exercise every day. Any amount of activity is better than none at all. To reap the benefits of exercise, just get more active throughout your day — take the stairs instead of the elevator or rev up your household chores. Consistency is key. Winded by grocery shopping or household chores? Regular physical activity can improve your muscle strength and boost your endurance.
             Exercise delivers oxygen and nutrients to your tissues and helps your cardiovascular system work more efficiently. And when your heart and lung health improve, you have more energy to tackle daily chores. Struggling to snooze? Regular physical activity can help you fall asleep faster, get better sleep and deepen your sleep. Just don't exercise too close to bedtime, or you may be too energized to go to sleep.</p>
     </section>
