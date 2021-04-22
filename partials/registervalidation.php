@@ -49,9 +49,14 @@ if(isset($_POST)) {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     // Kontrollieren, ob Email oder Username schon in der DB vorhanden ist
-   //  $compEmail = $checkUser->compareEmail($email);
+    $compEmail = $checkUser->compareEmail($email);
     $compUser = $checkUser->compareUser($username);
-        if ( !$compUser && !isset($passwortcheck) && !isset($validmail) ) {
+      //   if ( !$compEmail && !isset($passwortcheck) && !isset($validmail)) {
+        if ( !$compEmail && !$compUser ) {
+      //   if ( $compEmail && $compUser ) {
+         // if ( $compEmail && $compUser && $passwortcheck && $validmail) {
+         // if ( $compEmail && $compUser && $validmail) {
+         // if ( $compUser && $validmail && $passwortcheck) {
          // && !isset($validmail)
             // Wenn alles stimmt, in Datenbank eintragen
             $checkUser->registerUser([

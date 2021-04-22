@@ -95,14 +95,14 @@ else {
     <form class="login-form" method="POST">
         <h2>Login</h2>
         <p class="register-info">to existing profile</p>
-        <label for="userName">Username<input type="text" name="userName" value=""></label>
-        <label for="pass">Password<input type="password" name="pass"></label>
+        <label for="userName">Username<input type="text" name="userName" id="userName"></label>
+        <label for="pass">Password<input type="password" name="pass" id="pass"></label>
         <!-- Fehlerausgabe -->
         <?php if ($errorMessage) : ?>
         <p class="error-message"><?=$errorMessage?></p>
         <?php endif; ?>
         <!-- Submit Button -->
-        <input type="submit" value="Log me in!" name="login" class="btn">
+        <input type="submit" value="Log me in!" name="login" id="login-btn" class="btn">
     </form>
     <!-- Registration Form -->
     <form class="register-form" method="POST">
@@ -138,8 +138,7 @@ else {
     <!-- AJAX for Formvalidation -->
     <script>
     $(document).ready(function(){
-
-    // Neuladen der Seite verhindern
+   // Neuladen der Seite verhindern
     $(".register-form").submit(function(e) {
         e.preventDefault();
         // Variablen erstellen
