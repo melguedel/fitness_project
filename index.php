@@ -1,7 +1,6 @@
 <?php 
-// Datenbank-Verbindung
-require('prefs/Credentials.php');
-// Zeige Workouts aus Datenbank
+// Datenbank-Verbindung und Klassen aufrufen
+require('prefs/credentials.php');
 require('class/Showexercise.php');
 
 // Instanziere Klasse
@@ -29,17 +28,18 @@ if (isset($_POST['find'])) {
             <a href="register.php" class="btn">Sign up!</a>
         </article>
 </header>
-<!-- Main -->
+<!-- About -->
     <section id="about">
         <h2>What is this site about?</h2>
         <p>Do you want workout a specific area in your body and need the right exercise for it? Check the section below and choose the area you want to find exercises that fit your needs.</p>
         <p>Want to feel better, have more energy and even add years to your life? Just exercise. The health benefits of regular exercise and physical activity are hard to ignore. Everyone benefits from exercise, regardless of age, sex or physical ability. Regular trips to the gym are great, but don't worry if you can't find a large chunk of time to exercise every day. Any amount of activity is better than none at all. To reap the benefits of exercise, just get more active throughout your day — take the stairs instead of the elevator or rev up your household chores. Consistency is key. Winded by grocery shopping or household chores? Regular physical activity can improve your muscle strength and boost your endurance.
             Exercise delivers oxygen and nutrients to your tissues and helps your cardiovascular system work more efficiently. And when your heart and lung health improve, you have more energy to tackle daily chores. Struggling to snooze? Regular physical activity can help you fall asleep faster, get better sleep and deepen your sleep. Just don't exercise too close to bedtime, or you may be too energized to go to sleep.</p>
     </section>
-<!-- Selector für bestimmte Übungen -->
+    <!-- Select Section -->
     <section id="select-bodypart" class="show-workouts">
         <h2>Choose</h2>
         <p>the bodypart that you want to exercise</p>
+        <!-- Selector für bestimmte Übungen -->
         <form class="exercise-form" method="POST">
         <select id="exercise-option" name="choose" class="select-options">
             <option value="abdomen" name="abdomen">Abdomen</option>
@@ -75,7 +75,7 @@ if (isset($_POST['find'])) {
         // Neuladen der Seite verhindern
         $(".exercise-form").submit(function(e) {
             e.preventDefault();
-            // Variablen erstellen
+            // Variablen erstellen und Helferdatei aufrufen
             let choosenOption = $("#exercise-option :selected").val();    
             $(".workout-row").load("partials/exercise.php", { value: choosenOption });
             });

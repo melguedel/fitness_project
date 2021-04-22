@@ -1,8 +1,6 @@
 <?php
 
 /* Datenbank Verbindung */
-
-/* Neue Instanz für PDO Objekt */
 try {
     $pdo = new PDO (
         'mysql:host=localhost;dbname=fitness_project;charset=utf8', 'root', 'root'

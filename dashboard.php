@@ -1,6 +1,7 @@
 <?php
 session_start();
-require('prefs/Credentials.php');
+// Datenbank-Verbindung und Klassen aufrufen
+require('prefs/credentials.php');
 require('class/User.php');
 // User ID in Variable speichern
 $id = $_SESSION['userid'];
@@ -27,7 +28,7 @@ else {
 <nav class="top-nav">
     <ul>
         <li><a href="index.php" class="home">Home</a></li>
-        <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
 <!--Sidebar Navigation with Hamburger Menu -->
@@ -36,7 +37,7 @@ else {
     <i class="fas fa-times" onclick="closeMenu()"></i>
     <ul>
         <li><a href="index.php" class="home">Home</a></li>
-        <li><a href="logout.php" class="home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
 <!-- Willkommenstext mit Usernamen anzeigen -->
@@ -55,7 +56,7 @@ else {
 <script src="js/menu.js"></script>
 <script>
       $(document).ready(function(){
-        // Gespeicherte Übungen vom Benutzer
+        // Gespeicherte Übungen vom Benutzer anzeigen
         $(".workout-row").load("partials/showuserexercises.php", { user_id: <?php echo $_SESSION['userid'] ?> });
         });
 </script>

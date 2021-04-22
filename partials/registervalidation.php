@@ -1,7 +1,7 @@
 <?php
 require('../class/Errorhandling.php');
 require('../class/User.php');
-require('../prefs/Credentials.php');
+require('../prefs/credentials.php');
 // Instanziere Klassen
 $validation = new ErrorHandler;
 $checkUser = new User($pdo);

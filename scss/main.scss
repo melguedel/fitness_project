@@ -1,4 +1,6 @@
 
+/* Importiere Variablen etc. */ 
+
 @import "_variables.scss";
 @import "_mixins.scss";
 @import "_global.scss";
@@ -42,6 +44,8 @@
         max-width: 85%;
     }
 }
+
+/* Select Workouts Section */
 
 #select-bodypart {
     @include flexBox;

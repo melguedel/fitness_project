@@ -1,4 +1,5 @@
 <?php
+// Datenbank-Verbindung und Klassen aufrufen
 require('class/Bmi.php');
 require('class/Errorhandling.php');
 // Instanziere Klassen
@@ -16,7 +17,7 @@ $sanitize = new Errorhandler();
 <nav class="top-nav">
     <ul>
         <li><a href="index.php" class="home">Home</a></li>
-        <li><a href="register.php" class="login">Login</a></li>
+        <li><a href="register.php">Login</a></li>
     </ul>
 </nav>
 <!--Sidebar Navigation with Hamburger Menu -->
@@ -25,7 +26,7 @@ $sanitize = new Errorhandler();
     <i class="fas fa-times" onclick="closeMenu()"></i>
     <ul>
         <li><a href="index.php" class="home">Home</a></li>
-        <li><a href="register.php" class="login">Login</a></li>
+        <li><a href="register.php">Login</a></li>
     </ul>
 </nav>
 <!-- BMI Calculator Form -->
@@ -40,7 +41,7 @@ $sanitize = new Errorhandler();
 <?php
 // Wurde der Submit Button gedrückt:
 if (isset($_GET['calculate'])) {
-    // Variablen definieren
+    // Variablen definieren und Input reinigen
     $height = $sanitize->sanitizeInput($_GET['body-height']);
     $weight = $sanitize->sanitizeInput($_GET['body-weight']);
     // Methode aufrufen
@@ -53,7 +54,7 @@ if (isset($_GET['calculate'])) {
         } else if ($bmi >= 17 && $bmi < 18.5) {
             $info = "you are slightly underweight!";
         } else if ($bmi >= 18.5 && $bmi < 25) {
-            $info = "congratulations, your weight is normal!";
+            $info = "Congratulations, your weight is normal!";
         } else if ($bmi >= 25 && $bmi < 30) {
             $info = "you are overweight.";
         } else if ($bmi >= 30 && $bmi < 35) {
@@ -61,7 +62,7 @@ if (isset($_GET['calculate'])) {
         } else if ($bmi >= 35 && $bmi < 40) {
             $info = "you are extremely obese!";
         }  else if ($bmi > 40) {
-            $info = "..are you trying to find the ocean? Cause you a whale!";
+            $info = "..Oh no! You broke the scale!";
         }
         echo "<p class=\"neutral-message\" style=\"margin: 3em auto 2em auto; text-align: center;\">Your BMI Value is: ".$bmi." and ".$info."</p>\n";
     };

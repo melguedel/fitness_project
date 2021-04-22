@@ -1,8 +1,8 @@
 <?php
 session_start();
 $_SESSION['status'] = false;
-
-require('prefs/Credentials.php');
+// Datenbank-Verbindung und Klassen aufrufen
+require('prefs/credentials.php');
 require('class/User.php');
 require('class/Errorhandling.php');
 
@@ -48,12 +48,9 @@ else {
     $user = "";
     $pass = "";
 }
-
 // Errormessages auf leer stellen
     $registerError = "";
     $successMessage = "";
-
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,7 +156,7 @@ else {
             password: password,
             submit: submit
         })
-        // Lade Validationsdatei der Forms auf
+        // Rufe Validationsdatei der Forms auf
         $("#register-error").load("partials/registervalidation.php", {
             gender: gender,
             username: username,

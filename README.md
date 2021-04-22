@@ -34,13 +34,13 @@ This project is a fitness inspired website, which lets the user of the site crea
 
 ° htaccess- File <br>
 ° gitignore- File <br>
-° Prefs Folder, with <b>credentials.php</b>- File to access Database<br>
-° Class Folder, with all .class-Files<br>
+° Prefs Folder, with <b>Credentials.php</b>- File to access Database<br>
+° Class Folder, with all class-Files<br>
 ° SCSS Folder with all CSS & SCSS Files<br>
 ° Javascript Folder with Scripts<br>
 ° Images Folder containing all images of the project<br>
 ° Favicon Folder including all favicon image types <br>
-° Partials Folder including HTML- Files <br>
+° Partials Folder including HTML- Files and helper-Files<br>
 ° README.md- File<br>
 ° Exported Database-File for MySQL<br>
 
@@ -61,8 +61,7 @@ To access the personal profile, log in with: <br>
 
 ° SCSS / SASS <br>
 ° AJAX<br>
-° OOP <br>
-° PHP, PDO & MySQL <br>
+° PHP, OOP, PDO & MySQL <br>
 ° Toastr, for notifications<br>
 
 

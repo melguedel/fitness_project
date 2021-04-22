@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../prefs/Credentials.php');
+require('../prefs/credentials.php');
 require('../class/Showexercise.php');
 
 

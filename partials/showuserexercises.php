@@ -1,5 +1,5 @@
 <?php
-require('../prefs/Credentials.php');
+require('../prefs/credentials.php');
 require('../class/Showexercise.php');
 
 // Hole Workout-Angaben aus DB und zeige sie als Cards auf index.php an
