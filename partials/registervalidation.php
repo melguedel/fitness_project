@@ -14,7 +14,6 @@ if(isset($_POST)) {
     $email = $validation->sanitizeInput($_POST['email']);
     $password = $validation->sanitizeInput($_POST['password']);
     $gender = $validation->sanitizeInput($_POST['gender']);
-    // $agb = $validation->sanitizeInput($_POST['agb']);
 
     // Wurde Username angegeben?
     $test = $validation->required($username);
@@ -22,7 +21,7 @@ if(isset($_POST)) {
        echo  $validation->errormessages;
     }
 
-    // Miminuminput Username
+    // Mininuminput Username
     $minimum = $validation->minlenght($username);
     if (!$minimum){
        echo  $validation->errormessages;
@@ -64,9 +63,5 @@ if(isset($_POST)) {
         } else {
             echo "<p class=\"error-message\">Could not register!</p>\n";
         }
-
-
-
-
 
 };

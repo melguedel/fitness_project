@@ -42,7 +42,7 @@ else {
 </nav>
 <!-- Willkommenstext mit Usernamen anzeigen -->
 <h1 class="dashboard-main">Welcome back <?=$showInfo['username']?>!</h1>
-<!-- Gespeicherte Workouts ausgeben -->
+<!-- Gespeicherte Workouts als Cards ausgeben -->
 <section class="workout-section">
     <article class="workout-title">
         <h2>Your saved exercises</h2>

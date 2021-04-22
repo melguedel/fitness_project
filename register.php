@@ -92,7 +92,7 @@ else {
 <!-- Register and Login Forms -->
 <section class="form-section">
     <!-- Login Form -->
-    <form action="" class="login-form" method="POST">
+    <form class="login-form" method="POST">
         <h2>Login</h2>
         <p class="register-info">to existing profile</p>
         <label for="userName">Username<input type="text" name="userName" value=""></label>
@@ -105,7 +105,7 @@ else {
         <input type="submit" value="Log me in!" name="login" class="btn">
     </form>
     <!-- Registration Form -->
-    <form action="" class="register-form" method="POST">
+    <form class="register-form" method="POST">
         <h2>Register</h2>
         <p class="register-info">and create your own workout plan</p>
         <!-- Select Gender -->
@@ -138,6 +138,7 @@ else {
     <!-- AJAX for Formvalidation -->
     <script>
     $(document).ready(function(){
+
     // Neuladen der Seite verhindern
     $(".register-form").submit(function(e) {
         e.preventDefault();
@@ -155,7 +156,8 @@ else {
             email: email,
             password: password,
             submit: submit
-        })
+        });
+
         // Rufe Validationsdatei der Forms auf
         $("#register-error").load("partials/registervalidation.php", {
             gender: gender,

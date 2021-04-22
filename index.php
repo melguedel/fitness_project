@@ -51,7 +51,7 @@ if (isset($_POST['find'])) {
         <!-- Submit Button -->
         <input type="submit" value="Show exercises!" name="find" class="btn">
         </form>
-        <!-- Zeige gewählte Workout-Kategorie in Cards an -->
+        <!-- Zeige gewählte Workout-Kategorie als Cards an -->
         <div class="workout-row"></div> 
     </section>
 <!-- Contact Section -->
@@ -72,14 +72,15 @@ if (isset($_POST['find'])) {
     <script src="js/menu.js"></script>
     <script>
         $(document).ready(function(){
+
         // Neuladen der Seite verhindern
         $(".exercise-form").submit(function(e) {
             e.preventDefault();
+
             // Variablen erstellen und Helferdatei aufrufen
             let choosenOption = $("#exercise-option :selected").val();    
             $(".workout-row").load("partials/exercise.php", { value: choosenOption });
             });
-          
         });
     </script>
 </body>
