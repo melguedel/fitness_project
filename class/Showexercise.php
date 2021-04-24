@@ -34,6 +34,4 @@ public function deleteExercise($query, $params = array()) {
     $stmt->execute($params);
 }
 
-
-
 };

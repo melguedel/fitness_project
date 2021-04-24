@@ -24,8 +24,9 @@ $(".exercise-delete-form-<?php echo $row['id'] ?>").submit(function(e) {
     $.post("includes/deleteexercises.php", {exer_id: <?php echo $row['id'] ?>}, function(data) {
         console.log('deleted');
         console.log(data);
-    });
-})});
+        });
+    })
+});
 </script>
 
 

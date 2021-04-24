@@ -6,7 +6,7 @@ require('../prefs/credentials.php');
 $validation = new ErrorHandler;
 $checkUser = new User($pdo);
 
-
+// Wurde der Registrations-Button gedrückt:
 if(isset($_POST)) {
 
     // Userinput "reinigen"

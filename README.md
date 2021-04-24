@@ -33,7 +33,6 @@ This project is a fitness inspired website, which lets the user of the site crea
 > Folder Structure includes:
 
 ° htaccess- File <br>
-° gitignore- File <br>
 ° Prefs Folder, with <b>Credentials.php</b>- File to access Database<br>
 ° Class Folder, with all class-Files<br>
 ° SCSS Folder with all CSS & SCSS Files<br>
@@ -41,7 +40,7 @@ This project is a fitness inspired website, which lets the user of the site crea
 ° Images Folder containing all images of the project<br>
 ° Favicon Folder including all favicon image types <br>
 ° Partials Folder including HTML- Files<br>
-° Includes Folder with all helper-Files<br>
+° Includes Folder with all helper files<br>
 ° README.md- File<br>
 ° Exported Database-File for MySQL<br>
 

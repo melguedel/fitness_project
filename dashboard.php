@@ -13,6 +13,7 @@ if ($_SESSION['status'] == true) {
     $showInfo = $userInfo->showInfos($id);
  } 
 else {
+    // Wenn es nicht funktioniert hat, wieder auf Loginseite zurückschicken
     header('Location: register.php');
     echo "<p class=\"neutral-message\" style=\"margin: 3em auto 2em auto; text-align: center;\">Could not log in</p>\n";
 }

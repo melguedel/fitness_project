@@ -114,7 +114,7 @@ else {
             <option value="other">Other</option>
             <option value="male">Male</option>
         </select>
-        <!-- Eingabefelder -->
+        <!-- Eingabefelder für User -->
         <label for="username">Username<input type="text" id="validate-username" name="username"></label>
         <label for="email">E-Mail<input type="text" id="validate-email" name="email"></label>
         <label for="password">Password<input type="password" id="validate-password" name="password"></label>
