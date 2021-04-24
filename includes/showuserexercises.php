@@ -10,6 +10,6 @@ $exer = $showexercise->getExercise("SELECT * from saved_workouts
 
 // Iteriere durch Workouts
 foreach($exer as $row){ 
-    include("../partials/card-delete.php");
+    include("../includes/card-delete.php");
     }
 ?>

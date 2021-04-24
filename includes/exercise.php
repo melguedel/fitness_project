@@ -8,6 +8,6 @@ $exer = $showexercise->getExercise("SELECT * from `exercise` WHERE exer_category
 
 // Iteriere durch Workouts
 foreach($exer as $row){ 
-    include("../partials/card.php");
+    include("../includes/card.php");
     }
 ?>

@@ -1,11 +1,9 @@
 <!-- Card Template um Übungen auszugeben -->
 <?php 
-
 if(session_id() == ''){
     //session has not started
     session_start();
 }
-
 ?>
 <aside class="workout-card">
     <form name="workout" class="exercise-save-form-<?php echo $row['id'] ?>" method="POST">
@@ -21,7 +19,6 @@ if(session_id() == ''){
        echo '<input type="submit" class="btn-save btn" value="save" name="save" id="control-'. $row["id"] .'">';
     }
     ?>
-    
     </form>
 </aside>
 
@@ -30,11 +27,11 @@ if(session_id() == ''){
 $(document).ready(function(){
 $(".exercise-save-form-<?php echo $row['id'] ?>").submit(function(e) {
     e.preventDefault();
-
+    // Test in Konsole
     console.log('<?php echo $row['exer_name']?>');
     toastr.success('Saved!');
     // POST-Anfrage schicken mit ID von Workout
-    $.post("partials/saveexercises.php", {exer_id: <?php echo $row['id'] ?>}, function(data) {
+    $.post("includes/saveexercises.php", {exer_id: <?php echo $row['id'] ?>}, function(data) {
         $("#control-<?php echo $row["id"]?>").addClass("disabled");
         $("#control-<?php echo $row["id"]?>").attr("disabled", true);
         console.table(data);

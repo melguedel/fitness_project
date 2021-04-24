@@ -10,8 +10,6 @@ $sanitize = new Errorhandler();
 <html lang="en">
 <!-- Meta Data -->
 <?php require('partials/head.inc.html'); ?>
-<!-- Datenbank-Verbindung -->
-<?php require('prefs/Credentials.php'); ?>
 <body>
 <!-- Fixed top Navigation -->
 <nav class="top-nav">

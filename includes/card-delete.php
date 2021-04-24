@@ -1,4 +1,4 @@
-<!-- Card Template um Übungen auszugeben -->
+<!-- Card Template um Übungen zu löschen -->
 <aside class="workout-card workout-card-<?php echo $row['id'] ?>">
     <form name="workout" class="exercise-delete-form-<?php echo $row['id'] ?>" method="POST">
     <img class="exer-picture" src="img/<?php echo $row['exer_picture']?>" alt="<?php $row['exer_name'];?>">
@@ -21,7 +21,7 @@ $(".exercise-delete-form-<?php echo $row['id'] ?>").submit(function(e) {
 
     $(".workout-card-<?php echo $row['id'] ?>").remove();
     // POST-Anfrage schicken mit ID von Workout    
-    $.post("partials/deleteexercises.php", {exer_id: <?php echo $row['id'] ?>}, function(data) {
+    $.post("includes/deleteexercises.php", {exer_id: <?php echo $row['id'] ?>}, function(data) {
         console.log('deleted');
         console.log(data);
     });

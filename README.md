@@ -40,7 +40,8 @@ This project is a fitness inspired website, which lets the user of the site crea
 ° Javascript Folder with Scripts<br>
 ° Images Folder containing all images of the project<br>
 ° Favicon Folder including all favicon image types <br>
-° Partials Folder including HTML- Files and helper-Files<br>
+° Partials Folder including HTML- Files<br>
+° Includes Folder with all helper-Files<br>
 ° README.md- File<br>
 ° Exported Database-File for MySQL<br>
 

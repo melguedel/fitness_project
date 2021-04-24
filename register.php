@@ -158,7 +158,7 @@ else {
         });
 
         // Rufe Validationsdatei der Forms auf
-        $("#register-error").load("partials/registervalidation.php", {
+        $("#register-error").load("includes/registervalidation.php", {
             gender: gender,
             username: username,
             email: email,

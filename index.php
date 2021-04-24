@@ -79,7 +79,7 @@ if (isset($_POST['find'])) {
 
             // Variablen erstellen und Helferdatei aufrufen
             let choosenOption = $("#exercise-option :selected").val();    
-            $(".workout-row").load("partials/exercise.php", { value: choosenOption });
+            $(".workout-row").load("includes/exercise.php", { value: choosenOption });
             });
         });
     </script>

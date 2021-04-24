@@ -14,7 +14,7 @@ if ($_SESSION['status'] == true) {
  } 
 else {
     header('Location: register.php');
-    echo "Could not log in!";
+    echo "<p class=\"neutral-message\" style=\"margin: 3em auto 2em auto; text-align: center;\">Could not log in</p>\n";
 }
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ else {
     </ul>
 </nav>
 <!-- Willkommenstext mit Usernamen anzeigen -->
-<h1 class="dashboard-main">Welcome back <?=$showInfo['username']?>!</h1>
+<h1 class="dashboard-main">Welcome back, <?=$showInfo['username']?>!</h1>
 <!-- Gespeicherte Workouts als Cards ausgeben -->
 <section class="workout-section">
     <article class="workout-title">
@@ -57,7 +57,7 @@ else {
 <script>
       $(document).ready(function(){
         // Gespeicherte Übungen vom Benutzer anzeigen
-        $(".workout-row").load("partials/showuserexercises.php", { user_id: <?php echo $_SESSION['userid'] ?> });
+        $(".workout-row").load("includes/showuserexercises.php", { user_id: <?php echo $_SESSION['userid'] ?> });
         });
 </script>
 </body>
